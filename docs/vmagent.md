@@ -1,13 +1,9 @@
 ---
 sort: 3
 weight: 3
-menu:
-  docs:
-    parent: 'victoriametrics'
-    weight: 3
+menu:\n  docs:\n    parent: 'victoriametrics'\n    weight: 3
 title: vmagent
-aliases:
-  - /vmagent.html
+aliases:\n  - /vmagent.html
 ---
 # vmagent
 

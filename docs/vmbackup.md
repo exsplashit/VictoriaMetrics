@@ -1,13 +1,9 @@
 ---
 sort: 6
 weight: 6
-menu:
-  docs:
-    parent: 'victoriametrics'
-    weight: 6
+menu:\n  docs:\n    parent: 'victoriametrics'\n    weight: 6
 title: vmbackup
-aliases:
-  - /vmbackup.html
+aliases:\n  - /vmbackup.html
 ---
 # vmbackup
 

@@ -1,13 +1,9 @@
 ---
 sort: 10
 weight: 10
-menu:
-  docs:
-    parent: 'victoriametrics'
-    weight: 10
+menu:\n  docs:\n    parent: 'victoriametrics'\n    weight: 10
 title: vmbackupmanager
-aliases:
-  - /vmbackupmanager.html
+aliases:\n  - /vmbackupmanager.html
 ---
 # vmbackupmanager
 

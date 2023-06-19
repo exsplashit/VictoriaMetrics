@@ -1,13 +1,9 @@
 ---
 sort: 5
 weight: 5
-menu:
-  docs:
-    parent: 'victoriametrics'
-    weight: 5
+menu:\n  docs:\n    parent: 'victoriametrics'\n    weight: 5
 title: vmauth
-aliases:
-  - /vmauth.html
+aliases:\n  - /vmauth.html
 ---
 # vmauth
 

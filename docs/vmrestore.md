@@ -1,13 +1,9 @@
 ---
 sort: 7
 weight: 7
-menu:
-  docs:
-    parent: 'victoriametrics'
-    weight: 7
+menu:\n  docs:\n    parent: 'victoriametrics'\n    weight: 7
 title: vmrestore
-aliases:
-  - /vmrestore.html
+aliases:\n  - /vmrestore.html
 ---
 # vmrestore
 

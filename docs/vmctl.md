@@ -1,13 +1,9 @@
 ---
 sort: 8
 weight: 8
-menu:
-  docs:
-    parent: 'victoriametrics'
-    weight: 8
+menu:\n  docs:\n    parent: 'victoriametrics'\n    weight: 8
 title: vmctl
-aliases:
-  - /vmctl.html
+aliases:\n  - /vmctl.html
 ---
 # vmctl
 

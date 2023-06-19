@@ -1,13 +1,9 @@
 ---
 sort: 9
 weight: 9
-menu:
-  docs:
-    parent: 'victoriametrics'
-    weight: 9
+menu:\n  docs:\n    parent: 'victoriametrics'\n    weight: 9
 title: vmgateway
-aliases:
-  - /vmgateway.html
+aliases:\n  - /vmgateway.html
 ---
 # vmgateway
 
