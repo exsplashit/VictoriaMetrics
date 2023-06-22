@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/config"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/datasource"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/config"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/datasource"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 )
 
 type fakeReplayQuerier struct {

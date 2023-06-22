@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/netutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/netutil"
 	"github.com/VictoriaMetrics/metrics"
 )
 

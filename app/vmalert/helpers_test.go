@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/datasource"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/notifier"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/datasource"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/notifier"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
 )
 
 type fakeQuerier struct {

@@ -13,11 +13,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/envtemplate"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/procutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/envtemplate"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/procutil"
 	"github.com/VictoriaMetrics/metrics"
 	"gopkg.in/yaml.v2"
 )
@@ -288,7 +288,7 @@ func initAuthConfig() {
 
 	// Register SIGHUP handler for config re-read just before readAuthConfig call.
 	// This guarantees that the config will be re-read if the signal arrives during readAuthConfig call.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1240
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1240
 	sighupCh := procutil.NewSighupChan()
 
 	err := loadAuthConfig()

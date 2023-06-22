@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
 )
 
 // increaseAggrState calculates output=increase, e.g. the increase over input counters.

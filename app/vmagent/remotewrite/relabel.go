@@ -6,10 +6,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promrelabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/promrelabel"
 )
 
 var (

@@ -1,13 +1,13 @@
 # vmauth
 
-`vmauth` is a simple auth proxy, router and [load balancer](#load-balancing) for [VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics).
-It reads auth credentials from `Authorization` http header ([Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication), `Bearer token` and [InfluxDB authorization](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1897) is supported),
+`vmauth` is a simple auth proxy, router and [load balancer](#load-balancing) for [VictoriaMetrics](https://github.com/exsplashit/VictoriaMetrics).
+It reads auth credentials from `Authorization` http header ([Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication), `Bearer token` and [InfluxDB authorization](https://github.com/exsplashit/VictoriaMetrics/issues/1897) is supported),
 matches them against configs pointed by [-auth.config](#auth-config) command-line flag and proxies incoming HTTP requests to the configured per-user `url_prefix` on successful match.
 The `-auth.config` can point to either local file or to http url.
 
 ## Quick start
 
-Just download `vmutils-*` archive from [releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases), unpack it
+Just download `vmutils-*` archive from [releases page](https://github.com/exsplashit/VictoriaMetrics/releases), unpack it
 and pass the following flag to `vmauth` binary in order to start authorizing and routing requests:
 
 ```console
@@ -262,18 +262,18 @@ For unauthorized users `vmauth` exports `vmauth_unauthorized_user_requests_total
 
 ## How to build from sources
 
-It is recommended using [binary releases](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) - `vmauth` is located in `vmutils-*` archives there.
+It is recommended using [binary releases](https://github.com/exsplashit/VictoriaMetrics/releases) - `vmauth` is located in `vmutils-*` archives there.
 
 ### Development build
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make vmauth` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmauth` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmauth` binary and puts it into the `bin` folder.
 
 ### Production build
 
 1. [Install docker](https://docs.docker.com/install/).
-2. Run `make vmauth-prod` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmauth-prod` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmauth-prod` binary and puts it into the `bin` folder.
 
 ### Building docker images

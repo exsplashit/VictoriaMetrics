@@ -12,7 +12,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 var snapshotNameRegexp = regexp.MustCompile(`^[0-9]{14}-[0-9A-Fa-f]+$`)

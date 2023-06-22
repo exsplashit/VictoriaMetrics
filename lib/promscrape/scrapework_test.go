@@ -6,12 +6,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promrelabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	parser "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/prometheus"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/promrelabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	parser "github.com/exsplashit/VictoriaMetrics/lib/protoparser/prometheus"
 )
 
 func TestIsAutoMetric(t *testing.T) {
@@ -234,7 +234,7 @@ func TestScrapeWorkScrapeInternalSuccess(t *testing.T) {
 		scrape_series_added{job="override"} 2 123
 		scrape_timeout_seconds{job="override"} 42 123
 	`)
-	// Empty instance override. See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/453
+	// Empty instance override. See https://github.com/exsplashit/VictoriaMetrics/issues/453
 	f(`
 		no_instance{instance="",job="some_job",label="val1",test=""} 5555
 		test_with_instance{instance="some_instance",job="some_job",label="val2",test=""} 1555
@@ -353,7 +353,7 @@ func TestScrapeWorkScrapeInternalSuccess(t *testing.T) {
 		scrape_timeout_seconds{job="xx",instance="foo.com"} 42 123
 	`)
 	// Scrape metrics with names clashing with auto metrics
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3406
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/3406
 	f(`
 		up{bar="baz"} 34.44
 		bar{a="b",c="d"} -3e4

@@ -3,8 +3,8 @@ package opentsdbhttp
 import (
 	"fmt"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 	"github.com/VictoriaMetrics/metrics"
 	"github.com/valyala/fastjson"
 	"github.com/valyala/fastjson/fastfloat"

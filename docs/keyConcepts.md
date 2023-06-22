@@ -468,10 +468,10 @@ a lightweight agent whose main purpose is to collect, filter, relabel and delive
 It supports all [push](#push-model) and [pull](#pull-model) protocols mentioned above.
 
 The basic monitoring setup of VictoriaMetrics and vmagent is described
-in the [example docker-compose manifest](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/deployment/docker).
-In this example vmagent [scrapes a list of targets](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/docker/prometheus.yml)
-and [forwards collected data to VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/9d7da130b5a873be334b38c8d8dec702c9e8fac5/deployment/docker/docker-compose.yml#L15).
-VictoriaMetrics is then used as a [datasource for Grafana](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/docker/provisioning/datasources/datasource.yml)
+in the [example docker-compose manifest](https://github.com/exsplashit/VictoriaMetrics/tree/master/deployment/docker).
+In this example vmagent [scrapes a list of targets](https://github.com/exsplashit/VictoriaMetrics/blob/master/deployment/docker/prometheus.yml)
+and [forwards collected data to VictoriaMetrics](https://github.com/exsplashit/VictoriaMetrics/blob/9d7da130b5a873be334b38c8d8dec702c9e8fac5/deployment/docker/docker-compose.yml#L15).
+VictoriaMetrics is then used as a [datasource for Grafana](https://github.com/exsplashit/VictoriaMetrics/blob/master/deployment/docker/provisioning/datasources/datasource.yml)
 installation for querying collected data.
 
 VictoriaMetrics components allow building more advanced topologies. For example, vmagents can push metrics from separate datacenters to the central VictoriaMetrics:

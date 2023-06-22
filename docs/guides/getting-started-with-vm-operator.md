@@ -12,9 +12,9 @@ aliases:
 
 **The guide covers:**
 
-* The setup of a [VM Operator](https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-operator) via Helm in [Kubernetes](https://kubernetes.io/) with Helm charts.
-* The setup of a [VictoriaMetrics Cluster](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html) via [VM Operator](https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-operator).
-* How to add CRD for a [VictoriaMetrics Cluster](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html) via [VM Operator](https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-operator).
+* The setup of a [VM Operator](https://github.com/exsplashit/helm-charts/tree/master/charts/victoria-metrics-operator) via Helm in [Kubernetes](https://kubernetes.io/) with Helm charts.
+* The setup of a [VictoriaMetrics Cluster](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html) via [VM Operator](https://github.com/exsplashit/helm-charts/tree/master/charts/victoria-metrics-operator).
+* How to add CRD for a [VictoriaMetrics Cluster](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html) via [VM Operator](https://github.com/exsplashit/helm-charts/tree/master/charts/victoria-metrics-operator).
 * How to visualize stored data
 * How to store metrics in [VictoriaMetrics](https://victoriametrics.com)
 
@@ -51,7 +51,7 @@ NOTES:
 victoria-metrics-operator has been installed. Check its status by running:
   kubectl --namespace default get pods -l "app.kubernetes.io/instance=vmoperator"
 
-Get more information on https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-operator.
+Get more information on https://github.com/exsplashit/helm-charts/tree/master/charts/victoria-metrics-operator.
 See "Getting started guide for VM Operator" on https://docs.victoriametrics.com/guides/getting-started-with-vm-operator.html.
 ```
 
@@ -74,7 +74,7 @@ vmoperator-victoria-metrics-operator-67cff44cd6-s47n6   1/1     Running   0     
 
 > For this example we will use default value for `name: example-vmcluster-persistent`. Change it value up to your needs.
 
-Run the following command to install [VictoriaMetrics Cluster](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html) via [VM Operator](https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-operator):
+Run the following command to install [VictoriaMetrics Cluster](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html) via [VM Operator](https://github.com/exsplashit/helm-charts/tree/master/charts/victoria-metrics-operator):
 
 <div class="with-copy" markdown="1" id="example-cluster-config">
 
@@ -158,7 +158,7 @@ vminsert-example-vmcluster-persistent    ClusterIP   10.107.47.136   <none>     
 ```
 
 To scrape metrics from Kubernetes with a VictoriaMetrics Cluster we will need to install [VMAgent](https://docs.victoriametrics.com/vmagent.html) with some additional configurations.
-Copy `vminsert-example-vmcluster-persistent` (or whatever user put into metadata.name field [https://docs.victoriametrics.com/guides/getting-started-with-vm-operator.html#example-cluster-config](https://docs.victoriametrics.com/guides/getting-started-with-vm-operator.html#example-cluster-config)) service name and add it to the `remoteWrite` URL from [quick-start example](https://github.com/VictoriaMetrics/operator/blob/master/docs/quick-start.MD#vmagent).
+Copy `vminsert-example-vmcluster-persistent` (or whatever user put into metadata.name field [https://docs.victoriametrics.com/guides/getting-started-with-vm-operator.html#example-cluster-config](https://docs.victoriametrics.com/guides/getting-started-with-vm-operator.html#example-cluster-config)) service name and add it to the `remoteWrite` URL from [quick-start example](https://github.com/exsplashit/operator/blob/master/docs/quick-start.MD#vmagent).
 Here is an example of the full configuration that we need to apply:
 
 <div class="with-copy" markdown="1">
@@ -235,7 +235,7 @@ You will see something like this:
   <img src="guide-vmcluster-k8s-via-vm-operator.png" width="800" alt="">
 </p>
 
-`VMAgent` connects to [kubernetes service discovery](https://kubernetes.io/docs/concepts/services-networking/service/) and gets targets which needs to be scraped. This service discovery is controlled by [VictoriaMetrics Operator](https://github.com/VictoriaMetrics/operator)
+`VMAgent` connects to [kubernetes service discovery](https://kubernetes.io/docs/concepts/services-networking/service/) and gets targets which needs to be scraped. This service discovery is controlled by [VictoriaMetrics Operator](https://github.com/exsplashit/operator)
 
 ## 4. Verifying VictoriaMetrics cluster
 

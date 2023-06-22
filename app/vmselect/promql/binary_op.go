@@ -5,9 +5,9 @@ import (
 	"math"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metricsql"
 	"github.com/VictoriaMetrics/metricsql/binaryop"
 )
@@ -296,7 +296,7 @@ func mergeNonOverlappingTimeseries(dst, src *timeseries) bool {
 	}
 	// Do not merge time series with too small number of datapoints.
 	// This can be the case during evaluation of instant queries (alerting or recording rules).
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1141
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1141
 	if len(srcValues) <= 2 && len(dstValues) <= 2 {
 		return false
 	}
@@ -404,7 +404,7 @@ func binaryOpOr(bfa *binaryOpFuncArg) ([]*timeseries, error) {
 
 func fillLeftNaNsWithRightValues(tssLeft, tssRight []*timeseries) {
 	// Fill gaps in tssLeft with values from tssRight as Prometheus does.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/552
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/552
 	for _, tsLeft := range tssLeft {
 		valuesLeft := tsLeft.Values
 		for i, v := range valuesLeft {

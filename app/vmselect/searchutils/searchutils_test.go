@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 )
 
 func TestGetDurationSuccess(t *testing.T) {

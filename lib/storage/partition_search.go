@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // partitionSearch represents a search in the partition.

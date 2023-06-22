@@ -5,9 +5,9 @@ import (
 	"log"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/barpool"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/prometheus"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/vm"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/barpool"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/prometheus"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/vm"
 	"github.com/prometheus/prometheus/tsdb"
 	"github.com/prometheus/prometheus/tsdb/chunkenc"
 )

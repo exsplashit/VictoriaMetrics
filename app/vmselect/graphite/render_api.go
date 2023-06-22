@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/bufferedwriter"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/searchutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/bufferedwriter"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/searchutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
 	"github.com/VictoriaMetrics/metrics"
 )
 

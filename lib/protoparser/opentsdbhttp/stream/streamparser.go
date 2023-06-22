@@ -9,13 +9,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/opentsdbhttp"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/writeconcurrencylimiter"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/opentsdbhttp"
+	"github.com/exsplashit/VictoriaMetrics/lib/writeconcurrencylimiter"
 	"github.com/VictoriaMetrics/metrics"
 )
 

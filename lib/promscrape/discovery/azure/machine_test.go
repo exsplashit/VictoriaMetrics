@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discoveryutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discoveryutils"
 )
 
 func TestGetVirtualMachinesSuccess(t *testing.T) {

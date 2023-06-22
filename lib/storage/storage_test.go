@@ -12,8 +12,8 @@ import (
 	"testing/quick"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/uint64set"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/uint64set"
 )
 
 func TestReplaceAlternateRegexpsWithGraphiteWildcards(t *testing.T) {
@@ -509,7 +509,7 @@ func TestNextRetentionDuration(t *testing.T) {
 		// UTC offsets are in range [-12 hours, +14 hours].
 		// Verify that any legit combination of retention timezone and local time
 		// will return valid retention duration.
-		// See: https://github.com/VictoriaMetrics/VictoriaMetrics/issues/4207
+		// See: https://github.com/exsplashit/VictoriaMetrics/issues/4207
 		for retentionOffset := -12; retentionOffset <= 14; retentionOffset++ {
 			SetRetentionTimezoneOffset(time.Duration(retentionOffset) * time.Hour)
 			validateRetentionAt(time.Now().UTC(), retention)

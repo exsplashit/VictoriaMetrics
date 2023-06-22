@@ -3,7 +3,7 @@ package memory
 import (
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // Limiter is the memory limiter.

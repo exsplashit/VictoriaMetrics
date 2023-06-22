@@ -20,7 +20,7 @@ For workloads monitoring in kubernetes cluster we will have [VictoriaMetrics Ope
 
 ## Overview
 
-In this guide we will be using [victoria-metrics-k8s-stack](https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-k8s-stack) helm chart
+In this guide we will be using [victoria-metrics-k8s-stack](https://github.com/exsplashit/helm-charts/tree/master/charts/victoria-metrics-k8s-stack) helm chart
 
 This chart will install `VMOperator`, `VMAgent`, `NodeExporter`, `kube-state-metrics`, `grafana` and some service scrape configurations to start monitoring kubernetes cluster components
 

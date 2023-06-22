@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discoveryutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discoveryutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 )
 
 // getServiceNodesLabels returns labels for Consul service nodes with given cfg.

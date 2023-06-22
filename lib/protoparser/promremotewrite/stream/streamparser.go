@@ -6,13 +6,13 @@ import (
 	"io"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding/zstd"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompb"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/writeconcurrencylimiter"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding/zstd"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompb"
+	"github.com/exsplashit/VictoriaMetrics/lib/writeconcurrencylimiter"
 	"github.com/VictoriaMetrics/metrics"
 	"github.com/golang/snappy"
 )
@@ -35,7 +35,7 @@ func Parse(r io.Reader, isVMRemoteWrite bool, callback func(tss []prompb.TimeSer
 
 	// Synchronously process the request in order to properly return errors to Parse caller,
 	// so it could properly return HTTP 503 status code in response.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/896
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/896
 	bb := bodyBufferPool.Get()
 	defer bodyBufferPool.Put(bb)
 	var err error

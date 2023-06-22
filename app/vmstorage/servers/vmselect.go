@@ -7,12 +7,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/httpserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/querytracer"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/vmselectapi"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/httpserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/querytracer"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/vmselectapi"
 )
 
 var (

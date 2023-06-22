@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // Part is an atomic unit for transfer during backup / restore.

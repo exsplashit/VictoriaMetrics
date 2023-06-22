@@ -247,4 +247,4 @@ metadata:
 
 ## Additional information
 
-`VMAgent` also has some extra options for relabeling actions, you can check it [docs](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/app/vmagent/README.md#relabeling)
+`VMAgent` also has some extra options for relabeling actions, you can check it [docs](https://github.com/exsplashit/VictoriaMetrics/blob/master/app/vmagent/README.md#relabeling)

@@ -13,9 +13,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	s3types "github.com/aws/aws-sdk-go-v2/service/s3/types"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/backup/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/backup/fscommon"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/backup/common"
+	"github.com/exsplashit/VictoriaMetrics/lib/backup/fscommon"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 var (
@@ -290,7 +290,7 @@ func (fs *FS) DeleteFile(filePath string) error {
 	// It looks like s3 may return `AccessDenied: Access Denied` instead of `s3.ErrCodeNoSuchKey`
 	// on an attempt to delete non-existing file.
 	// so just check whether the filePath exists before deleting it.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/284 for details.
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/284 for details.
 	ok, err := fs.HasFile(filePath)
 	if err != nil {
 		return err

@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
 )
 
 // totalAggrState calculates output=total, e.g. the summary counter over input counters.

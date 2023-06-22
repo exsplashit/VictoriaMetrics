@@ -5,7 +5,7 @@ import (
 	"os"
 	"sync/atomic"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 	"golang.org/x/sys/unix"
 )
 

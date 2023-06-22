@@ -15,16 +15,16 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/memory"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/mergeset"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/querytracer"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/uint64set"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/workingsetcache"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/memory"
+	"github.com/exsplashit/VictoriaMetrics/lib/mergeset"
+	"github.com/exsplashit/VictoriaMetrics/lib/querytracer"
+	"github.com/exsplashit/VictoriaMetrics/lib/uint64set"
+	"github.com/exsplashit/VictoriaMetrics/lib/workingsetcache"
 	"github.com/VictoriaMetrics/fastcache"
 	"github.com/cespare/xxhash/v2"
 )
@@ -55,7 +55,7 @@ const (
 // indexDB represents an index db.
 type indexDB struct {
 	// Atomic counters must go at the top of the structure in order to properly align by 8 bytes on 32-bit archs.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/212 .
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/212 .
 
 	refCount uint64
 
@@ -838,7 +838,7 @@ func (is *indexSearch) searchLabelNamesWithFiltersOnDate(qt *querytracer.Tracer,
 	if filter != nil && filter.Len() <= 100e3 {
 		// It is faster to obtain label names by metricIDs from the filter
 		// instead of scanning the inverted index for the matching filters.
-		// This would help https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2978
+		// This would help https://github.com/exsplashit/VictoriaMetrics/issues/2978
 		metricIDs := filter.AppendTo(nil)
 		qt.Printf("sort %d metricIDs", len(metricIDs))
 		return is.getLabelNamesForMetricIDs(qt, metricIDs, lns, maxLabelNames)
@@ -1098,7 +1098,7 @@ func (db *indexDB) SearchLabelValuesWithFiltersOnTimeRange(qt *querytracer.Trace
 	for labelValue := range lvs {
 		if len(labelValue) == 0 {
 			// Skip empty values, since they have no any meaning.
-			// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/600
+			// See https://github.com/exsplashit/VictoriaMetrics/issues/600
 			continue
 		}
 		labelValues = append(labelValues, labelValue)
@@ -1166,7 +1166,7 @@ func (is *indexSearch) searchLabelValuesWithFiltersOnDate(qt *querytracer.Tracer
 	if filter != nil && filter.Len() < 100e3 {
 		// It is faster to obtain label values by metricIDs from the filter
 		// instead of scanning the inverted index for the matching filters.
-		// This would help https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2978
+		// This would help https://github.com/exsplashit/VictoriaMetrics/issues/2978
 		metricIDs := filter.AppendTo(nil)
 		qt.Printf("sort %d metricIDs", len(metricIDs))
 		return is.getLabelValuesForMetricIDs(qt, lvs, labelName, metricIDs, maxLabelValues)
@@ -1850,7 +1850,7 @@ func (db *indexDB) deleteMetricIDs(metricIDs []uint64) {
 	// Make this after updating the deletedMetricIDs and resetting caches
 	// in order to exclude the possibility of the inconsistent state when the deleted metricIDs
 	// remain available in the tsidCache after unclean shutdown.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1347
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1347
 	items := getIndexItems()
 	for _, metricID := range metricIDs {
 		items.B = append(items.B, nsPrefixDeletedMetricID)
@@ -2400,8 +2400,8 @@ func matchTagFilters(mn *MetricName, tfs []*tagFilter, kb *bytesutil.ByteBuffer)
 			//
 			// Note that the filter `{non_existing_tag_key!~"|foobar"}` shouldn't match anything,
 			// since it is expected that it matches non-empty `non_existing_tag_key`.
-			// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/546 and
-			// https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2255 for details.
+			// See https://github.com/exsplashit/VictoriaMetrics/issues/546 and
+			// https://github.com/exsplashit/VictoriaMetrics/issues/2255 for details.
 			continue
 		}
 		if tagMatched {
@@ -3145,8 +3145,8 @@ func (is *indexSearch) getMetricIDsForDateTagFilter(qt *querytracer.Tracer, tf *
 	}
 	// The tag filter, which matches empty label such as {foo=~"bar|"}
 	// Convert it to negative filter, which matches {foo=~".+",foo!~"bar|"}.
-	// This fixes https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1601
-	// See also https://github.com/VictoriaMetrics/VictoriaMetrics/issues/395
+	// This fixes https://github.com/exsplashit/VictoriaMetrics/issues/1601
+	// See also https://github.com/exsplashit/VictoriaMetrics/issues/395
 	maxLoopsCount -= loopsCount
 	var tfGross tagFilter
 	if err := tfGross.Init(prefix, tf.key, []byte(".+"), false, true); err != nil {

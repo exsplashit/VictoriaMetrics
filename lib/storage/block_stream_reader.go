@@ -6,11 +6,11 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/filestream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/filestream"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // blockStreamReader represents block stream reader.

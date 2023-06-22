@@ -5,9 +5,9 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -68,7 +68,7 @@ func (fq *FastQueue) UnblockAllReaders() {
 
 	// Unblock blocked readers
 	// Allow for up to 5 seconds for sending Prometheus stale markers.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1526
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1526
 	fq.stopDeadline = fasttime.UnixTimestamp() + 5
 	fq.cond.Broadcast()
 }
@@ -160,7 +160,7 @@ func (fq *FastQueue) MustWriteBlock(block []byte) {
 	fq.pendingInmemoryBytes += uint64(len(block))
 
 	// Notify potentially blocked reader.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/pull/484 for the context.
+	// See https://github.com/exsplashit/VictoriaMetrics/pull/484 for the context.
 	fq.cond.Signal()
 }
 

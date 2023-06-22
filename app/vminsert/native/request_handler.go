@@ -3,15 +3,15 @@ package native
 import (
 	"net/http"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/relabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	parserCommon "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/native/stream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/tenantmetrics"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/relabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	parserCommon "github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/native/stream"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/tenantmetrics"
 	"github.com/VictoriaMetrics/metrics"
 )
 

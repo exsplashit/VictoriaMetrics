@@ -4,7 +4,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
 )
 
 func readPasswordFromFile(path string) (string, error) {

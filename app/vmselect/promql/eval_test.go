@@ -3,8 +3,8 @@ package promql
 import (
 	"testing"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/prometheus"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/prometheus"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metricsql"
 )
 

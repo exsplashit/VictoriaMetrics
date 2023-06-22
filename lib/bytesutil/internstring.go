@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
 )
 
 var (
@@ -35,7 +35,7 @@ func InternBytes(b []byte) string {
 func InternString(s string) string {
 	if isSkipCache(s) {
 		// Make a new copy for s in order to remove references from possible bigger string s refers to.
-		// This also protects from cases when s points to unsafe string - see https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3227
+		// This also protects from cases when s points to unsafe string - see https://github.com/exsplashit/VictoriaMetrics/issues/3227
 		return strings.Clone(s)
 	}
 

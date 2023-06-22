@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/utils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/utils"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
 )
 
 var (

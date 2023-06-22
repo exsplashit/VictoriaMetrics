@@ -12,21 +12,21 @@ import (
 
 	"github.com/cespare/xxhash/v2"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bloomfilter"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/memory"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/persistentqueue"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/procutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promrelabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/streamaggr"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/tenantmetrics"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/bloomfilter"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/memory"
+	"github.com/exsplashit/VictoriaMetrics/lib/persistentqueue"
+	"github.com/exsplashit/VictoriaMetrics/lib/procutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/promrelabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/streamaggr"
+	"github.com/exsplashit/VictoriaMetrics/lib/tenantmetrics"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -149,7 +149,7 @@ func Init() {
 
 	// Register SIGHUP handler for config reload before loadRelabelConfigs.
 	// This guarantees that the config will be re-read if the signal arrives just after loadRelabelConfig.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1240
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1240
 	sighupCh := procutil.NewSighupChan()
 
 	rcs, err := loadRelabelConfigs()
@@ -257,7 +257,7 @@ func newRemoteWriteCtxs(at *auth.Token, urls []string) []*remoteWriteCtx {
 	if !*keepDanglingQueues {
 		// Remove dangling queues, if any.
 		// This is required for the case when the number of queues has been changed or URL have been changed.
-		// See: https://github.com/VictoriaMetrics/VictoriaMetrics/issues/4014
+		// See: https://github.com/exsplashit/VictoriaMetrics/issues/4014
 		existingQueues := make(map[string]struct{}, len(rwctxs))
 		for _, rwctx := range rwctxs {
 			existingQueues[rwctx.fq.Dirname()] = struct{}{}
@@ -524,7 +524,7 @@ func newRemoteWriteCtx(argIdx int, at *auth.Token, remoteWriteURL *url.URL, maxI
 	queuePath := filepath.Join(*tmpDataPath, persistentQueueDirname, fmt.Sprintf("%d_%016X", argIdx+1, h))
 	maxPendingBytes := maxPendingBytesPerURL.GetOptionalArgOrDefault(argIdx, 0)
 	if maxPendingBytes != 0 && maxPendingBytes < persistentqueue.DefaultChunkFileSize {
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/4195
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/4195
 		logger.Warnf("rounding the -remoteWrite.maxDiskUsagePerURL=%d to the minimum supported value: %d", maxPendingBytes, persistentqueue.DefaultChunkFileSize)
 		maxPendingBytes = persistentqueue.DefaultChunkFileSize
 	}
@@ -618,8 +618,8 @@ func (rwctx *remoteWriteCtx) Push(tss []prompbmarshal.TimeSeries) {
 		rctx = getRelabelCtx()
 		// Make a copy of tss before applying relabeling in order to prevent
 		// from affecting time series for other remoteWrite.url configs.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/467
-		// and https://github.com/VictoriaMetrics/VictoriaMetrics/issues/599
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/467
+		// and https://github.com/exsplashit/VictoriaMetrics/issues/599
 		v = tssRelabelPool.Get().(*[]prompbmarshal.TimeSeries)
 		tss = append(*v, tss...)
 		rowsCountBeforeRelabel := getRowsCount(tss)

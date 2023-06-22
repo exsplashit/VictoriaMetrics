@@ -10,13 +10,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/awsapi"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/persistentqueue"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/timerpool"
+	"github.com/exsplashit/VictoriaMetrics/lib/awsapi"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/persistentqueue"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	"github.com/exsplashit/VictoriaMetrics/lib/timerpool"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -401,8 +401,8 @@ again:
 				len(block), c.sanitizedURL, statusCode, string(body))
 		}
 		// Just drop block on 409 and 400 status codes like Prometheus does.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/873
-		// and https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1149
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/873
+		// and https://github.com/exsplashit/VictoriaMetrics/issues/1149
 		_ = resp.Body.Close()
 		c.packetsDropped.Inc()
 		return true

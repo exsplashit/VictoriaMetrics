@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/buildinfo"
+	"github.com/exsplashit/VictoriaMetrics/lib/buildinfo"
 )
 
 var denyQueryTracing = flag.Bool("denyQueryTracing", false, "Whether to disable the ability to trace queries. See https://docs.victoriametrics.com/#query-tracing")

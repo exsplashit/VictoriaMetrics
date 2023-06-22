@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metricsql"
 )
 
@@ -44,7 +44,7 @@ func GetInt(r *http.Request, argKey string) (int, error) {
 //
 // If argKey is missing in r, then defaultMs rounded to seconds is returned.
 // The rounding is needed in order to align query results in Grafana
-// executed at different times. See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/720
+// executed at different times. See https://github.com/exsplashit/VictoriaMetrics/issues/720
 func GetTime(r *http.Request, argKey string, defaultMs int64) (int64, error) {
 	argValue := r.FormValue(argKey)
 	if len(argValue) == 0 {

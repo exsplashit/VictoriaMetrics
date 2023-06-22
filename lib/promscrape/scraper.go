@@ -10,28 +10,28 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/procutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/azure"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/consul"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/consulagent"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/digitalocean"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/dns"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/docker"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/dockerswarm"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/ec2"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/eureka"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/gce"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/http"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/kubernetes"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/kuma"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/nomad"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/openstack"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/yandexcloud"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/procutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/azure"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/consul"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/consulagent"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/digitalocean"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/dns"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/docker"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/dockerswarm"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/ec2"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/eureka"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/gce"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/http"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/kubernetes"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/kuma"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/nomad"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/openstack"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/yandexcloud"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -108,7 +108,7 @@ func runScraper(configFile string, pushData func(at *auth.Token, wr *prompbmarsh
 
 	// Register SIGHUP handler for config reload before loadConfig.
 	// This guarantees that the config will be re-read if the signal arrives just after loadConfig.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1240
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1240
 	sighupCh := procutil.NewSighupChan()
 
 	logger.Infof("reading Prometheus configs from %q", configFile)

@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
 )
 
 func TestAlertManager_Addr(t *testing.T) {

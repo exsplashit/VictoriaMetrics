@@ -3,11 +3,11 @@ package graphite
 import (
 	"io"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmagent/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmagent/remotewrite"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	parser "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/graphite"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/graphite/stream"
+	"github.com/exsplashit/VictoriaMetrics/app/vmagent/common"
+	"github.com/exsplashit/VictoriaMetrics/app/vmagent/remotewrite"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	parser "github.com/exsplashit/VictoriaMetrics/lib/protoparser/graphite"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/graphite/stream"
 	"github.com/VictoriaMetrics/metrics"
 )
 

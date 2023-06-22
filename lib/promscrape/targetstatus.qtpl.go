@@ -9,8 +9,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/htmlcomponents"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/htmlcomponents"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 )
 
 //line lib/promscrape/targetstatus.qtpl:11

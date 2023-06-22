@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/netutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
-	"github.com/VictoriaMetrics/fasthttp"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/netutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/fasthttp"
 	"golang.org/x/net/proxy"
 )
 
@@ -212,7 +212,7 @@ func tlsServerName(addr string) string {
 
 func defaultDialFunc(addr string) (net.Conn, error) {
 	network := netutil.GetTCPNetwork()
-	// Do not use fasthttp.Dial because of https://github.com/VictoriaMetrics/VictoriaMetrics/issues/987
+	// Do not use fasthttp.Dial because of https://github.com/exsplashit/VictoriaMetrics/issues/987
 	return net.DialTimeout(network, addr, 5*time.Second)
 }
 

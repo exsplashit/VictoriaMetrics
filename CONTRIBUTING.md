@@ -1,6 +1,6 @@
 If you like VictoriaMetrics and want to contribute, then we need the following:
 
-- Filing issues and feature requests [here](https://github.com/VictoriaMetrics/VictoriaMetrics/issues).
+- Filing issues and feature requests [here](https://github.com/exsplashit/VictoriaMetrics/issues).
 - Spreading a word about VictoriaMetrics: conference talks, articles, comments, experience sharing with colleagues.
 - Updating documentation.
 

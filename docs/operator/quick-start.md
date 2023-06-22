@@ -18,21 +18,21 @@ Operator serves to make running VictoriaMetrics applications on top of Kubernete
 ## Installing by Manifest
 
 Obtain release from releases page:
-[https://github.com/VictoriaMetrics/operator/releases](https://github.com/VictoriaMetrics/operator/releases)
+[https://github.com/exsplashit/operator/releases](https://github.com/exsplashit/operator/releases)
 
  We suggest use the latest release. 
 
 ```console
-# Get latest release version from https://github.com/VictoriaMetrics/operator/releases/latest
-export VM_VERSION=`basename $(curl -fs -o/dev/null -w %{redirect_url} https://github.com/VictoriaMetrics/operator/releases/latest)`
-wget https://github.com/VictoriaMetrics/operator/releases/download/$VM_VERSION/bundle_crd.zip
+# Get latest release version from https://github.com/exsplashit/operator/releases/latest
+export VM_VERSION=`basename $(curl -fs -o/dev/null -w %{redirect_url} https://github.com/exsplashit/operator/releases/latest)`
+wget https://github.com/exsplashit/operator/releases/download/$VM_VERSION/bundle_crd.zip
 unzip  bundle_crd.zip 
 ```
 
 > TIP, operator use monitoring-system namespace, but you can install it to specific namespace with command
 > sed -i "s/namespace: monitoring-system/namespace: YOUR_NAMESPACE/g" release/operator/*
 
-First of all, you  have to create [custom resource definitions](https://github.com/VictoriaMetrics/operator)
+First of all, you  have to create [custom resource definitions](https://github.com/exsplashit/operator)
 ```console
 kubectl apply -f release/crds
 ```
@@ -61,14 +61,14 @@ kubectl get pods -n monitoring-system
 You can install operator using [Kustomize](https://kustomize.io/) by pointing to the remote kustomization file.
 
 ```yaml
-# Get latest release version from https://github.com/VictoriaMetrics/operator/releases/latest
-export VM_VERSION=`basename $(curl -fs -o/dev/null -w %{redirect_url} https://github.com/VictoriaMetrics/operator/releases/latest)`
+# Get latest release version from https://github.com/exsplashit/operator/releases/latest
+export VM_VERSION=`basename $(curl -fs -o/dev/null -w %{redirect_url} https://github.com/exsplashit/operator/releases/latest)`
 
 cat << EOF > kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- github.com/VictoriaMetrics/operator/config/default?ref=${VM_VERSION}
+- github.com/exsplashit/operator/config/default?ref=${VM_VERSION}
 
 images:
 - name: victoriametrics/operator
@@ -127,7 +127,7 @@ The VictoriaMetrics Operator introduces additional resources in Kubernetes to de
 
 ## VMSingle
 
-[VMSingle](https://github.com/VictoriaMetrics/VictoriaMetrics/) represents database for storing metrics, for all possible config options check api [doc](https://docs.victoriametrics.com/operator/api.html#vmsingle):
+[VMSingle](https://github.com/exsplashit/VictoriaMetrics/) represents database for storing metrics, for all possible config options check api [doc](https://docs.victoriametrics.com/operator/api.html#vmsingle):
  
 ```yaml
 cat <<EOF | kubectl apply -f -
@@ -147,7 +147,7 @@ spec:
 EOF
 ```
 
-Configuration can be extended with extraFlags and extraEnv, check flag documentation at [doc](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/docs/Single-server-VictoriaMetrics.md)
+Configuration can be extended with extraFlags and extraEnv, check flag documentation at [doc](https://github.com/exsplashit/VictoriaMetrics/blob/master/docs/Single-server-VictoriaMetrics.md)
 for instance:
 
 ```yaml
@@ -184,7 +184,7 @@ EOF
 
 ## VMCluster
 
-[VMCluster](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster) represent a high-available and fault-tolerant version of VictoriaMetrics database.
+[VMCluster](https://github.com/exsplashit/VictoriaMetrics/tree/cluster) represent a high-available and fault-tolerant version of VictoriaMetrics database.
 For minimal version without persistent create simple custom resource definition:
  
 ```yaml
@@ -274,7 +274,7 @@ EOF
 
 ## VMAgent
 
-[VMAgent](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmagent) -  is a tiny but brave agent, which helps you collect metrics from various sources and stores them in [VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics).
+[VMAgent](https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmagent) -  is a tiny but brave agent, which helps you collect metrics from various sources and stores them in [VictoriaMetrics](https://github.com/exsplashit/VictoriaMetrics).
 It requires access to Kubernetes API and you can create RBAC for it first, it can be found at `release/examples/VMAgent_rbac.yaml`
 Or you can use default rbac account, that will be created for `VMAgent` by operator automatically.
 
@@ -300,7 +300,7 @@ spec:
 EOF
 ```
 
- For connecting `VMAgent` to cluster, you have to specify url for it, check url building [doc](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/cluster/README.md#url-format)
+ For connecting `VMAgent` to cluster, you have to specify url for it, check url building [doc](https://github.com/exsplashit/VictoriaMetrics/blob/cluster/README.md#url-format)
 
  Example:
 
@@ -460,7 +460,7 @@ EOF
 
 ## VMAlert
 
-[VMAlert](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmalert) - executes a list of given [alerting](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) or [recording](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) rules against configured address. It
+[VMAlert](https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmalert) - executes a list of given [alerting](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) or [recording](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) rules against configured address. It
 has few required config options - `datasource` and `notifier` are required, for other config parameters check [doc](https://docs.victoriametrics.com/operator/api.html#vmalert).
 
 ```yaml
@@ -1410,7 +1410,7 @@ to the rule config:
 ## Expose the VMSingle API
 
 
-> WARNING: Please protect delete endpoint before exposing it [doc](https://github.com/VictoriaMetrics/VictoriaMetrics#how-to-delete-time-series)
+> WARNING: Please protect delete endpoint before exposing it [doc](https://github.com/exsplashit/VictoriaMetrics#how-to-delete-time-series)
 
 Example for Kubernetes Nginx ingress [doc](https://kubernetes.github.io/ingress-nginx/examples/auth/basic/)
 

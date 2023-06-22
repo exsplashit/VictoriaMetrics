@@ -5,7 +5,7 @@ Docker compose environment for VictoriaMetrics includes VictoriaMetrics componen
 and [Grafana](https://grafana.com/).
 
 For starting the docker-compose environment ensure you have docker installed and running and access to the Internet.
-**All commands should be executed from the root directory of [the repo](https://github.com/VictoriaMetrics/VictoriaMetrics).**
+**All commands should be executed from the root directory of [the repo](https://github.com/exsplashit/VictoriaMetrics).**
 
 To spin-up environment for single server VictoriaMetrics run the following command:
 ```
@@ -70,14 +70,14 @@ use link [http://localhost:8481/select/0/prometheus/vmui](http://localhost:8481/
 ## vmagent
 
 vmagent is used for scraping and pushing time series to VictoriaMetrics instance. 
-It accepts Prometheus-compatible configuration [prometheus.yml](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/docker/prometheus.yml)
+It accepts Prometheus-compatible configuration [prometheus.yml](https://github.com/exsplashit/VictoriaMetrics/blob/master/deployment/docker/prometheus.yml)
 with listed targets for scraping.
 
 [Web interface link](http://localhost:8429/).
 
 ## vmalert
 
-vmalert evaluates alerting rules [alerts.yml](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/docker/alerts.yml)
+vmalert evaluates alerting rules [alerts.yml](https://github.com/exsplashit/VictoriaMetrics/blob/master/deployment/docker/alerts.yml)
 to track VictoriaMetrics health state. It is connected with AlertManager for firing alerts,
 and with VictoriaMetrics for executing queries and storing alert's state.
 
@@ -86,7 +86,7 @@ and with VictoriaMetrics for executing queries and storing alert's state.
 ## alertmanager
 
 AlertManager accepts notifications from `vmalert` and fires alerts.
-All notifications are blackholed according to [alertmanager.yml](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/docker/alertmanager.yml) config.
+All notifications are blackholed according to [alertmanager.yml](https://github.com/exsplashit/VictoriaMetrics/blob/master/deployment/docker/alertmanager.yml) config.
 
 [Web interface link](http://localhost:9093/).
 

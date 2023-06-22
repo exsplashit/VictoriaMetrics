@@ -3,14 +3,14 @@ package datadog
 import (
 	"net/http"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmagent/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmagent/remotewrite"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	parserCommon "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	parser "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/datadog"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/datadog/stream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/tenantmetrics"
+	"github.com/exsplashit/VictoriaMetrics/app/vmagent/common"
+	"github.com/exsplashit/VictoriaMetrics/app/vmagent/remotewrite"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	parserCommon "github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	parser "github.com/exsplashit/VictoriaMetrics/lib/protoparser/datadog"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/datadog/stream"
+	"github.com/exsplashit/VictoriaMetrics/lib/tenantmetrics"
 	"github.com/VictoriaMetrics/metrics"
 )
 

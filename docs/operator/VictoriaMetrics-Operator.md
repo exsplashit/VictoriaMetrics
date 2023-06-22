@@ -36,7 +36,7 @@ For applications developers, its great possibility for managing observability of
 
 ## Operator vs helm-chart
 
-VictoriaMetrics provides [helm charts](https://github.com/VictoriaMetrics/helm-charts). Operator makes the same, simplifies it and provides advanced features.
+VictoriaMetrics provides [helm charts](https://github.com/exsplashit/helm-charts). Operator makes the same, simplifies it and provides advanced features.
 
 
 ## Configuration
@@ -50,7 +50,7 @@ It defines default configuration options, like images for components, timeouts, 
 
 Operator tested at kubernetes versions from 1.16 to 1.22.
 
-For clusters version below 1.16 you must use legacy CRDs from [path](https://github.com/VictoriaMetrics/operator/tree/master/config/crd/legacy) 
+For clusters version below 1.16 you must use legacy CRDs from [path](https://github.com/exsplashit/operator/tree/master/config/crd/legacy) 
 and disable CRD controller with flag: `--controller.disableCRDOwnership=true`
 
 ## Troubleshooting

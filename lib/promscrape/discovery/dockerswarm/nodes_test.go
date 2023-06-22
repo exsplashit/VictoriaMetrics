@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discoveryutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discoveryutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 )
 
 func Test_parseNodes(t *testing.T) {

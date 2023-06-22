@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
 )
 
 func newTimeSeries(values []float64, timestamps []int64, labels map[string]string) prompbmarshal.TimeSeries {

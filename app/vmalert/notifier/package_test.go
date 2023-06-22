@@ -1,7 +1,7 @@
 package notifier
 
 import (
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/templates"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/templates"
 	"os"
 	"testing"
 )

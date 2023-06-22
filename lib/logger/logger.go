@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/buildinfo"
+	"github.com/exsplashit/VictoriaMetrics/lib/buildinfo"
 	"github.com/VictoriaMetrics/metrics"
 )
 

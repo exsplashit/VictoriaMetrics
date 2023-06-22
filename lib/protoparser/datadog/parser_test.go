@@ -23,7 +23,7 @@ func TestSplitTag(t *testing.T) {
 }
 
 func TestRequestUnmarshalMissingHost(t *testing.T) {
-	// This tests https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3432
+	// This tests https://github.com/exsplashit/VictoriaMetrics/issues/3432
 	req := Request{
 		Series: []Series{{
 			Host:   "prev-host",

@@ -40,7 +40,7 @@ For `Secret` it doesn't work. And operator offers its implementation for side-ca
  - name: VM_USECUSTOMCONFIGRELOADER
    value: "true"
  ```
-If it's defined, operator uses own [config-reloader](https://github.com/VictoriaMetrics/operator/tree/master/internal/config-reloader) instead of [prometheus-config-reload](https://github.com/prometheus-operator/prometheus-operator/tree/main/cmd/prometheus-config-reloader).
+If it's defined, operator uses own [config-reloader](https://github.com/exsplashit/operator/tree/master/internal/config-reloader) instead of [prometheus-config-reload](https://github.com/prometheus-operator/prometheus-operator/tree/main/cmd/prometheus-config-reloader).
 
 It watches corresponding `Secret` for changes with Kubernetes API watch call and writes content into emptyDir.
 This emptyDir shared with the application.

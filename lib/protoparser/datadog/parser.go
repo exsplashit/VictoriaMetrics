@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
 )
 
 // SplitTag splits DataDog tag into tag name and value.
@@ -31,7 +31,7 @@ func (req *Request) reset() {
 	// recursively reset all the fields in req in order to avoid field value
 	// re-use in json.Unmarshal() when the corresponding field is missing
 	// in the unmarshaled JSON.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3432
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/3432
 	series := req.Series
 	for i := range series {
 		series[i].reset()

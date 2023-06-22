@@ -4,7 +4,7 @@
 package memory
 
 import (
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // This code has been adopted from https://github.com/pbnjay/memory

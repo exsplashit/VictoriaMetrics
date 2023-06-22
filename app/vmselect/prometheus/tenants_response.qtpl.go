@@ -6,7 +6,7 @@ package prometheus
 
 //line app/vmselect/prometheus/tenants_response.qtpl:3
 import (
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/querytracer"
+	"github.com/exsplashit/VictoriaMetrics/lib/querytracer"
 )
 
 // TenantsResponse generates response for /admin/tenants .

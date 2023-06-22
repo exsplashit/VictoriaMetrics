@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/proxy"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/proxy"
 )
 
 // SDCheckInterval defines interval for targets refresh.

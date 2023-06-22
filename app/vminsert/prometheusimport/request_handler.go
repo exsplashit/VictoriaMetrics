@@ -3,15 +3,15 @@ package prometheusimport
 import (
 	"net/http"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/relabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/httpserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	parserCommon "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	parser "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/prometheus"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/prometheus/stream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/tenantmetrics"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/relabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/httpserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	parserCommon "github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	parser "github.com/exsplashit/VictoriaMetrics/lib/protoparser/prometheus"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/prometheus/stream"
+	"github.com/exsplashit/VictoriaMetrics/lib/tenantmetrics"
 	"github.com/VictoriaMetrics/metrics"
 )
 

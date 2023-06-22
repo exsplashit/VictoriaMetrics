@@ -18,7 +18,7 @@ aliases:
 
 for those objects you can specify following settings at `spec.Image`
 
-for instance, to set `VMSingle` version add `spec.image.tag` name from [releases](https://github.com/VictoriaMetrics/VictoriaMetrics/releases)
+for instance, to set `VMSingle` version add `spec.image.tag` name from [releases](https://github.com/exsplashit/VictoriaMetrics/releases)
 
 ```yaml
 cat <<EOF | kubectl apply -f  -

@@ -6,9 +6,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discoveryutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discoveryutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 )
 
 func (p *Pod) key() string {

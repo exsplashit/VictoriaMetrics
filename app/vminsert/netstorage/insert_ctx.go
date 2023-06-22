@@ -5,13 +5,13 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/relabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/httpserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompb"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/relabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/httpserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompb"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/cespare/xxhash/v2"
 )
 
@@ -82,7 +82,7 @@ func (ctx *InsertCtx) Reset() {
 func (ctx *InsertCtx) AddLabelBytes(name, value []byte) {
 	if len(value) == 0 {
 		// Skip labels without values, since they have no sense.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/600
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/600
 		// Do not skip labels with empty name, since they are equal to __name__.
 		return
 	}
@@ -100,7 +100,7 @@ func (ctx *InsertCtx) AddLabelBytes(name, value []byte) {
 func (ctx *InsertCtx) AddLabel(name, value string) {
 	if len(value) == 0 {
 		// Skip labels without values, since they have no sense.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/600
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/600
 		// Do not skip labels with empty name, since they are equal to __name__.
 		return
 	}

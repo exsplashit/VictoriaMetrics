@@ -9,19 +9,19 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmstorage/servers"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/buildinfo"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/envflag"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/httpserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/mergeset"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/procutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/pushmetrics"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/app/vmstorage/servers"
+	"github.com/exsplashit/VictoriaMetrics/lib/buildinfo"
+	"github.com/exsplashit/VictoriaMetrics/lib/envflag"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/httpserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/mergeset"
+	"github.com/exsplashit/VictoriaMetrics/lib/procutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	"github.com/exsplashit/VictoriaMetrics/lib/pushmetrics"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -513,7 +513,7 @@ func registerStorageMetrics(strg *storage.Storage) {
 		return float64(idbm().ItemsAddedSizeBytes)
 	})
 
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/686
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/686
 	metrics.NewGauge(`vm_merge_need_free_disk_space`, func() float64 {
 		return float64(tm().MergeNeedFreeDiskSpace)
 	})

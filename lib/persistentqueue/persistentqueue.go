@@ -10,12 +10,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/filestream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/filestream"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -515,7 +515,7 @@ var readDurationSeconds = metrics.NewFloatCounter(`vm_persistentqueue_read_durat
 
 func (q *queue) skipBrokenChunkFile() error {
 	// Try to recover from broken chunk file by skipping it.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1030
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1030
 	q.readerOffset += q.chunkFileSize - q.readerOffset%q.chunkFileSize
 	if q.readerOffset >= q.writerOffset {
 		q.mustResetFiles()

@@ -30,7 +30,7 @@ const Footer: FC = () => {
     <a
       className="vm-link vm-footer__link"
       target="_blank"
-      href="https://github.com/VictoriaMetrics/VictoriaMetrics/issues/new/choose"
+      href="https://github.com/exsplashit/VictoriaMetrics/issues/new/choose"
       rel="noreferrer"
     >
       <IssueIcon/>

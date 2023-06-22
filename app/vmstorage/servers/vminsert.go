@@ -8,13 +8,13 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/handshake"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/ingestserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/netutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/clusternative/stream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/handshake"
+	"github.com/exsplashit/VictoriaMetrics/lib/ingestserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/netutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/clusternative/stream"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metrics"
 )
 

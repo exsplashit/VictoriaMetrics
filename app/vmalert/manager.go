@@ -7,11 +7,11 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/config"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/datasource"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/notifier"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/remotewrite"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/config"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/datasource"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/notifier"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/remotewrite"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // manager controls group states

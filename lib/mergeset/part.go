@@ -5,11 +5,11 @@ import (
 	"sync"
 	"unsafe"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/blockcache"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/filestream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/memory"
+	"github.com/exsplashit/VictoriaMetrics/lib/blockcache"
+	"github.com/exsplashit/VictoriaMetrics/lib/filestream"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/memory"
 )
 
 var idxbCache = blockcache.NewCache(getMaxIndexBlocksCacheSize)

@@ -12,11 +12,11 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/netutil"
-	"github.com/VictoriaMetrics/fasthttp"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/netutil"
+	"github.com/exsplashit/fasthttp"
 	"github.com/cespare/xxhash/v2"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/clientcredentials"
@@ -27,7 +27,7 @@ import (
 // It is marshaled to "<secret>" string in yaml.
 //
 // This is needed for hiding secret strings in /config page output.
-// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1764
+// See https://github.com/exsplashit/VictoriaMetrics/issues/1764
 type Secret struct {
 	S string
 }
@@ -693,7 +693,7 @@ func (tctx *tlsContext) initFromTLSConfig(baseDir string, tc *TLSConfig) error {
 		tctx.tlsCertDigest = fmt.Sprintf("digest(key+cert)=%d", h)
 	} else if tc.CertFile != "" || tc.KeyFile != "" {
 		tctx.getTLSCert = func(*tls.CertificateRequestInfo) (*tls.Certificate, error) {
-			// Re-read TLS certificate from disk. This is needed for https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1420
+			// Re-read TLS certificate from disk. This is needed for https://github.com/exsplashit/VictoriaMetrics/issues/1420
 			certPath := fs.GetFilepath(baseDir, tc.CertFile)
 			keyPath := fs.GetFilepath(baseDir, tc.KeyFile)
 			cert, err := tls.LoadX509KeyPair(certPath, keyPath)

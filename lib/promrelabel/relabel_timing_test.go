@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
 )
 
 func BenchmarkSanitizeName(b *testing.B) {

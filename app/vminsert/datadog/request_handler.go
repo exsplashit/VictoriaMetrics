@@ -3,15 +3,15 @@ package datadog
 import (
 	"net/http"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/relabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	parserCommon "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	parser "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/datadog"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/datadog/stream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/tenantmetrics"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/relabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	parserCommon "github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	parser "github.com/exsplashit/VictoriaMetrics/lib/protoparser/datadog"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/datadog/stream"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/tenantmetrics"
 	"github.com/VictoriaMetrics/metrics"
 )
 

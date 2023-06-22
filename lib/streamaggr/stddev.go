@@ -4,7 +4,7 @@ import (
 	"math"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
 )
 
 // stddevAggrState calculates output=stddev, e.g. the average value over input samples.

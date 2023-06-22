@@ -6,11 +6,11 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/memory"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/memory"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -144,7 +144,7 @@ func (tbf *tmpBlocksFile) Finalize() error {
 	// for HDDs.
 	r.MustFadviseSequentialRead(true)
 	// Collect local stats in order to improve performance on systems with big number of CPU cores.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3966
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/3966
 	r.SetUseLocalStats()
 	tbf.r = r
 	return nil

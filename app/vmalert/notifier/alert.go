@@ -8,10 +8,10 @@ import (
 	textTpl "text/template"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/templates"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/utils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promrelabel"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/templates"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/utils"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/promrelabel"
 )
 
 // Alert the triggered alert

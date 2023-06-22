@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
 )
 
 // PromRegex implements an optimized string matching for Prometheus-like regex.

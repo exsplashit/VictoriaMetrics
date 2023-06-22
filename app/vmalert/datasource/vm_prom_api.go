@@ -162,18 +162,18 @@ func (s *VMStorage) setPrometheusInstantReqParams(r *http.Request, query string,
 		timestamp = timestamp.Add(-s.lookBack)
 	}
 	if *queryTimeAlignment && s.evaluationInterval > 0 {
-		// see https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1232
+		// see https://github.com/exsplashit/VictoriaMetrics/issues/1232
 		timestamp = timestamp.Truncate(s.evaluationInterval)
 	}
 	q.Set("time", fmt.Sprintf("%d", timestamp.Unix()))
 	if s.evaluationInterval > 0 { // set step as evaluationInterval by default
 		// always convert to seconds to keep compatibility with older
-		// Prometheus versions. See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1943
+		// Prometheus versions. See https://github.com/exsplashit/VictoriaMetrics/issues/1943
 		q.Set("step", fmt.Sprintf("%ds", int(s.evaluationInterval.Seconds())))
 	}
 	if s.queryStep > 0 { // override step with user-specified value
 		// always convert to seconds to keep compatibility with older
-		// Prometheus versions. See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1943
+		// Prometheus versions. See https://github.com/exsplashit/VictoriaMetrics/issues/1943
 		q.Set("step", fmt.Sprintf("%ds", int(s.queryStep.Seconds())))
 	}
 	r.URL.RawQuery = q.Encode()
@@ -192,7 +192,7 @@ func (s *VMStorage) setPrometheusRangeReqParams(r *http.Request, query string, s
 	q.Add("end", fmt.Sprintf("%d", end.Unix()))
 	if s.evaluationInterval > 0 { // set step as evaluationInterval by default
 		// always convert to seconds to keep compatibility with older
-		// Prometheus versions. See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1943
+		// Prometheus versions. See https://github.com/exsplashit/VictoriaMetrics/issues/1943
 		q.Set("step", fmt.Sprintf("%ds", int(s.evaluationInterval.Seconds())))
 	}
 	r.URL.RawQuery = q.Encode()

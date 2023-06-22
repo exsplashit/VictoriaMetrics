@@ -16,9 +16,9 @@ import (
 
 	"golang.org/x/net/http2"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/proxy"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/timerpool"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/VictoriaMetrics/lib/proxy"
+	"github.com/exsplashit/VictoriaMetrics/lib/timerpool"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -315,7 +315,7 @@ func doRequestWithPossibleRetry(hc *HTTPClient, req *http.Request) (*http.Respon
 	// The first attempt was unsuccessful. Use exponential backoff for further attempts.
 	// Perform the second attempt immediately after the first attempt - this should help
 	// in cases when the remote side closes the keep-alive connection before the first attempt.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3293
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/3293
 	sleepTime := time.Second
 	// It is expected that the deadline is already set to req.Context(), so the loop below
 	// should eventually finish if all the attempt() calls are unsuccessful.

@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
 )
 
 // Rule represents alerting or recording rule

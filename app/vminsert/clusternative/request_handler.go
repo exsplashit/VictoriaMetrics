@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/relabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/handshake"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/clusternative/stream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/tenantmetrics"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/relabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/handshake"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/clusternative/stream"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/tenantmetrics"
 	"github.com/VictoriaMetrics/metrics"
 )
 

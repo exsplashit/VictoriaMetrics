@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/notifier"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/remotewrite"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/procutil"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/notifier"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/remotewrite"
+	"github.com/exsplashit/VictoriaMetrics/lib/procutil"
 )
 
 func TestGetExternalURL(t *testing.T) {

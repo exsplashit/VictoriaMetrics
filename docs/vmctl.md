@@ -79,7 +79,7 @@ are explained in [Tuning](#tuning) section.
 
 Please note, that if you're going to import data into VictoriaMetrics cluster do not
 forget to specify the `--vm-account-id` flag. See more details for cluster version
-[here](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster).
+[here](https://github.com/exsplashit/VictoriaMetrics/tree/cluster).
 
 ## Articles
 
@@ -221,7 +221,7 @@ To use migration tool please specify the InfluxDB address `--influx-addr`, the d
 Flag `--vm-addr` for single-node VM is usually equal to `--httpListenAddr`, and for cluster version
 is equal to `--httpListenAddr` flag of vminsert component. Please note, that vmctl performs initial readiness check for the given address
 by checking `/health` endpoint. For cluster version it is additionally required to specify the `--vm-account-id` flag.
-See more details for cluster version [here](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster).
+See more details for cluster version [here](https://github.com/exsplashit/VictoriaMetrics/tree/cluster).
 
 As soon as required flags are provided and all endpoints are accessible, `vmctl` will start the InfluxDB scheme exploration.
 Basically, it just fetches all fields and timeseries from the provided database and builds up registry of all available timeseries.
@@ -314,7 +314,7 @@ Please see more about time filtering [here](https://docs.influxdata.com/influxdb
 
 ## Migrating data from InfluxDB (2.x)
 
-Migrating data from InfluxDB v2.x is not supported yet ([#32](https://github.com/VictoriaMetrics/vmctl/issues/32)).
+Migrating data from InfluxDB v2.x is not supported yet ([#32](https://github.com/exsplashit/vmctl/issues/32)).
 You may find useful a 3rd party solution for this - <https://github.com/jonppe/influx_to_victoriametrics>.
 
 ## Migrating data from Prometheus
@@ -329,7 +329,7 @@ Please note, that `vmctl` *do not make a snapshot from Prometheus*, it uses an a
 Flag `--vm-addr` for single-node VM is usually equal to `--httpListenAddr`, and for cluster version
 is equal to `--httpListenAddr` flag of vminsert component. Please note, that vmctl performs initial readiness check for the given address
 by checking `/health` endpoint. For cluster version it is additionally required to specify the `--vm-account-id` flag.
-See more details for cluster version [here](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster).
+See more details for cluster version [here](https://github.com/exsplashit/VictoriaMetrics/tree/cluster).
 
 As soon as required flags are provided and all endpoints are accessible, `vmctl` will start the Prometheus snapshot exploration.
 Basically, it just fetches all available blocks in provided snapshot and read the metadata. It also does initial filtering by time
@@ -339,7 +339,7 @@ Please note that stats are not taking into account timeseries or samples filteri
 The importing process takes the snapshot blocks revealed from Explore procedure and processes them one by one
 accumulating timeseries and samples. Please note, that `vmctl` relies on responses from InfluxDB on this stage,
 so ensure that Explore queries are executed without errors or limits. Please see this
-[issue](https://github.com/VictoriaMetrics/vmctl/issues/30) for details.
+[issue](https://github.com/exsplashit/vmctl/issues/30) for details.
 The data processed in chunks and then sent to VM.
 
 The importing process example for local installation of Prometheus
@@ -739,7 +739,7 @@ requires an Authentication header like `X-Scope-OrgID`. You can define it via th
 ## Migrating data from VictoriaMetrics
 
 vmctl uses [native binary protocol](https://docs.victoriametrics.com/#how-to-export-data-in-native-format)
-(available since [1.42.0 release](https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.42.0))
+(available since [1.42.0 release](https://github.com/exsplashit/VictoriaMetrics/releases/tag/v1.42.0))
 o migrate data between VM instances: single to single, cluster to cluster, single to cluster and vice versa.
 
 See `./vmctl vm-native --help` for details and full list of flags.
@@ -816,9 +816,9 @@ Or manually specify addresses according to [URL format](https://docs.victoriamet
 workers busy with processing. Please note, that each worker can load up to a single vCPU core on VictoriaMetrics. 
 So try to set it according to allocated CPU resources of your VictoriaMetrics destination installation.
 7. Migration is a backfilling process, so it is recommended to read
-[Backfilling tips](https://github.com/VictoriaMetrics/VictoriaMetrics#backfilling) section.
+[Backfilling tips](https://github.com/exsplashit/VictoriaMetrics#backfilling) section.
 8. `vmctl` doesn't provide relabeling or other types of labels management.
-Instead, use [relabeling in VictoriaMetrics](https://github.com/VictoriaMetrics/vmctl/issues/4#issuecomment-683424375).
+Instead, use [relabeling in VictoriaMetrics](https://github.com/exsplashit/vmctl/issues/4#issuecomment-683424375).
 9. `vmctl` supports `--vm-native-src-headers` and `--vm-native-dst-headers` to define headers sent with each request
 to the corresponding source address.
 10. `vmctl` supports `--vm-native-disable-http-keep-alive` to allow `vmctl` to use non-persistent HTTP connections to avoid
@@ -1024,18 +1024,18 @@ as a proxy between `vmctl` and destination with `-remoteWrite.rateLimit` flag en
 
 ## How to build
 
-It is recommended using [binary releases](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) - `vmctl` is located in `vmutils-*` archives there.
+It is recommended using [binary releases](https://github.com/exsplashit/VictoriaMetrics/releases) - `vmctl` is located in `vmutils-*` archives there.
 
 ### Development build
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make vmctl` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmctl` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmctl` binary and puts it into the `bin` folder.
 
 ### Production build
 
 1. [Install docker](https://docs.docker.com/install/).
-2. Run `make vmctl-prod` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmctl-prod` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmctl-prod` binary and puts it into the `bin` folder.
 
 ### Building docker images
@@ -1058,11 +1058,11 @@ ARM build may run on Raspberry Pi or on [energy-efficient ARM servers](https://b
 #### Development ARM build
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make vmctl-linux-arm` or `make vmctl-linux-arm64` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmctl-linux-arm` or `make vmctl-linux-arm64` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmctl-linux-arm` or `vmctl-linux-arm64` binary respectively and puts it into the `bin` folder.
 
 #### Production ARM build
 
 1. [Install docker](https://docs.docker.com/install/).
-2. Run `make vmctl-linux-arm-prod` or `make vmctl-linux-arm64-prod` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmctl-linux-arm-prod` or `make vmctl-linux-arm64-prod` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmctl-linux-arm-prod` or `vmctl-linux-arm64-prod` binary respectively and puts it into the `bin` folder.

@@ -197,8 +197,8 @@ It is also possible to provide the public keys directly via the `-auth.publicKey
 Create a new Prometheus datasource in Grafana with the following URL `http://<vmgateway>:8431`.
 URL should point to the vmgateway instance.
 
-You can also use VictoriaMetrics [Grafana datasource](https://github.com/VictoriaMetrics/grafana-datasource) plugin.
-See installation instructions [here](https://github.com/VictoriaMetrics/grafana-datasource#installation).
+You can also use VictoriaMetrics [Grafana datasource](https://github.com/exsplashit/grafana-datasource) plugin.
+See installation instructions [here](https://github.com/exsplashit/grafana-datasource#installation).
 
 Enable `Forward OAuth identity` flag.<br>
 <img src="grafana-vmgateway-openid-configuration/grafana-ds.png" width="800">

@@ -7,7 +7,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
 )
 
 type proxyProtocolConn struct {

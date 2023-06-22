@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/VictoriaMetrics/fasthttp"
+	"github.com/exsplashit/fasthttp"
 )
 
 func TestNewConfig(t *testing.T) {

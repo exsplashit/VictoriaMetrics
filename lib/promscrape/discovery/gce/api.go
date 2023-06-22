@@ -8,8 +8,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discoveryutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discoveryutils"
 	"golang.org/x/oauth2/google"
 )
 
@@ -59,7 +59,7 @@ func newAPIConfig(sdc *SDConfig) (*apiConfig, error) {
 	} else if len(zones) == 1 && zones[0] == "*" {
 		// Autodetect zones for project.
 		// Do not pass sdc.Filter when discovering zones, since GCE doesn't support it.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3202
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/3202
 		zs, err := getZonesForProject(client, project)
 		if err != nil {
 			return nil, fmt.Errorf("cannot obtain zones for project %q: %w", project, err)

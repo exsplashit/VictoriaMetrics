@@ -16,10 +16,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -377,7 +377,7 @@ func (gw *groupWatcher) startWatchersForRole(role string, aw *apiWatcher) {
 				// Refresh targets in background, since they depend on other object types such as pod, service or node.
 				// This should guarantee that the ScrapeWork objects for these objects are properly updated
 				// as soon as the objects they depend on are updated.
-				// This should fix https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1240 .
+				// This should fix https://github.com/exsplashit/VictoriaMetrics/issues/1240 .
 				go func() {
 					const minSleepTime = 5 * time.Second
 					sleepTime := minSleepTime

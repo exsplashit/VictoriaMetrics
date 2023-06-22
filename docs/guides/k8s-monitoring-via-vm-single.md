@@ -32,7 +32,7 @@ We will use:
 
 ## 1. VictoriaMetrics Helm repository
 
-> For this guide we will use Helm 3 but if you already use Helm 2 please see this [https://github.com/VictoriaMetrics/helm-charts#for-helm-v2](https://github.com/VictoriaMetrics/helm-charts#for-helm-v2)
+> For this guide we will use Helm 3 but if you already use Helm 2 please see this [https://github.com/exsplashit/helm-charts#for-helm-v2](https://github.com/exsplashit/helm-charts#for-helm-v2)
 
 You need to add the VictoriaMetrics Helm repository to install VictoriaMetrics components. We’re going to use [VictoriaMetrics Single](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html). You can do this by running the following command:
 

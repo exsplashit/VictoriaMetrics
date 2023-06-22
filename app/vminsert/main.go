@@ -11,36 +11,36 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/clusternative"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/csvimport"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/datadog"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/graphite"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/influx"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/native"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/opentsdb"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/opentsdbhttp"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/prometheusimport"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/promremotewrite"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/relabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/vmimport"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/buildinfo"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/envflag"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/httpserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/influxutils"
-	clusternativeserver "github.com/VictoriaMetrics/VictoriaMetrics/lib/ingestserver/clusternative"
-	graphiteserver "github.com/VictoriaMetrics/VictoriaMetrics/lib/ingestserver/graphite"
-	influxserver "github.com/VictoriaMetrics/VictoriaMetrics/lib/ingestserver/influx"
-	opentsdbserver "github.com/VictoriaMetrics/VictoriaMetrics/lib/ingestserver/opentsdb"
-	opentsdbhttpserver "github.com/VictoriaMetrics/VictoriaMetrics/lib/ingestserver/opentsdbhttp"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/procutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/pushmetrics"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/clusternative"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/csvimport"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/datadog"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/graphite"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/influx"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/native"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/opentsdb"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/opentsdbhttp"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/prometheusimport"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/promremotewrite"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/relabel"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/vmimport"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/buildinfo"
+	"github.com/exsplashit/VictoriaMetrics/lib/envflag"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/httpserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/influxutils"
+	clusternativeserver "github.com/exsplashit/VictoriaMetrics/lib/ingestserver/clusternative"
+	graphiteserver "github.com/exsplashit/VictoriaMetrics/lib/ingestserver/graphite"
+	influxserver "github.com/exsplashit/VictoriaMetrics/lib/ingestserver/influx"
+	opentsdbserver "github.com/exsplashit/VictoriaMetrics/lib/ingestserver/opentsdb"
+	opentsdbhttpserver "github.com/exsplashit/VictoriaMetrics/lib/ingestserver/opentsdbhttp"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/procutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	"github.com/exsplashit/VictoriaMetrics/lib/pushmetrics"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -109,7 +109,7 @@ func main() {
 	if *clusternativeListenAddr != "" {
 		// Use different hash seed for the second level of vminsert nodes in multi-level cluster setup.
 		// This should fix uneven distribution of time series among storage nodes.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1672
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/1672
 		hashSeed = 0xabcdef0123456789
 	}
 	netstorage.Init(*storageNodes, hashSeed)
@@ -223,7 +223,7 @@ func requestHandler(w http.ResponseWriter, r *http.Request) bool {
 		statusCode := http.StatusNoContent
 		if strings.HasPrefix(p.Suffix, "prometheus/api/v1/import/prometheus/metrics/job/") {
 			// Return 200 status code for pushgateway requests.
-			// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3636
+			// See https://github.com/exsplashit/VictoriaMetrics/issues/3636
 			statusCode = http.StatusOK
 		}
 		w.WriteHeader(statusCode)
@@ -231,7 +231,7 @@ func requestHandler(w http.ResponseWriter, r *http.Request) bool {
 	}
 	if strings.HasPrefix(p.Suffix, "datadog/") {
 		// Trim suffix from paths starting from /datadog/ in order to support legacy DataDog agent.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/pull/2670
+		// See https://github.com/exsplashit/VictoriaMetrics/pull/2670
 		p.Suffix = strings.TrimSuffix(p.Suffix, "/")
 	}
 	switch p.Suffix {

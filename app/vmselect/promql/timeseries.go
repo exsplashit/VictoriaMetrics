@@ -8,10 +8,10 @@ import (
 	"sync"
 	"unsafe"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 )
 
 type timeseries struct {
@@ -106,7 +106,7 @@ func marshalTimeseriesFast(dst []byte, tss []*timeseries, maxSize int, step int6
 
 	// Marshal timestamps and values at first, so they are 8-byte aligned.
 	// This prevents from SIGBUS error on arm architectures.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/pull/3927
+	// See https://github.com/exsplashit/VictoriaMetrics/pull/3927
 	dst = encoding.MarshalUint64(dst, uint64(len(tss)))
 	dst = encoding.MarshalUint64(dst, uint64(len(timestamps)))
 	dst = marshalTimestampsFast(dst, timestamps)
@@ -347,7 +347,7 @@ func byteSliceToInt64(b []byte) (a []int64) {
 	sh.Cap = sh.Len
 	// Make sure that the returned slice is properly aligned to 8 bytes.
 	// This prevents from SIGBUS error on arm architectures, which deny unaligned access.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/pull/3927
+	// See https://github.com/exsplashit/VictoriaMetrics/pull/3927
 	if sh.Data%8 != 0 {
 		logger.Panicf("BUG: the input byte slice b must be aligned to 8 bytes")
 	}
@@ -364,7 +364,7 @@ func byteSliceToFloat64(b []byte) (a []float64) {
 	sh.Cap = sh.Len
 	// Make sure that the returned slice is properly aligned to 8 bytes.
 	// This prevents from SIGBUS error on arm architectures, which deny unaligned access.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/pull/3927
+	// See https://github.com/exsplashit/VictoriaMetrics/pull/3927
 	if sh.Data%8 != 0 {
 		logger.Panicf("BUG: the input byte slice b must be aligned to 8 bytes")
 	}

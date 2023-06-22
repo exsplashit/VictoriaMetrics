@@ -5,8 +5,8 @@ import (
 	"math"
 	"sort"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // blockHeader is a header for a time series block.

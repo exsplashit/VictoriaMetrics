@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/utils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/vm"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/utils"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/vm"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
 	"github.com/gogo/protobuf/proto"
 	"github.com/golang/snappy"
 	"github.com/prometheus/prometheus/prompb"

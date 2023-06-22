@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
 )
 
 func TestBlockMarshalUnmarshalPortable(t *testing.T) {

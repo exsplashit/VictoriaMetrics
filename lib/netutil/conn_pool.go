@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/handshake"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/handshake"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -19,7 +19,7 @@ type ConnPool struct {
 	// concurrentDialsCh limits the number of concurrent dials the ConnPool can make.
 	// This should prevent from creating an excees number of connections during temporary
 	// spikes in workload at vmselect and vmstorage nodes.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2552
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/2552
 	concurrentDialsCh chan struct{}
 
 	name             string
@@ -33,7 +33,7 @@ type ConnPool struct {
 	// lastDialError contains the last error seen when dialing remote addr.
 	// When it is non-nil and conns is empty, then ConnPool.Get() return this error.
 	// This reduces the time needed for dialing unavailable remote storage systems.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/711#issuecomment-1160363187
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/711#issuecomment-1160363187
 	lastDialError error
 }
 
@@ -134,7 +134,7 @@ func (cp *ConnPool) Get() (*handshake.BufferedConn, error) {
 
 func (cp *ConnPool) getConnSlow() (*handshake.BufferedConn, error) {
 	// Limit the number of concurrent dials.
-	// This should help https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2552
+	// This should help https://github.com/exsplashit/VictoriaMetrics/issues/2552
 	cp.concurrentDialsCh <- struct{}{}
 	defer func() {
 		<-cp.concurrentDialsCh
@@ -216,7 +216,7 @@ func (cp *ConnPool) Put(bc *handshake.BufferedConn) {
 func (cp *ConnPool) closeIdleConns() {
 	// Close connections, which were idle for more than 30 seconds.
 	// This should reduce the number of connections after sudden spikes in query rate.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2508
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/2508
 	deadline := fasttime.UnixTimestamp() - 30
 	var activeConns []connWithTimestamp
 	cp.mu.Lock()

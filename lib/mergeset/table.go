@@ -13,12 +13,12 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/memory"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/syncwg"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/memory"
+	"github.com/exsplashit/VictoriaMetrics/lib/syncwg"
 )
 
 // maxInmemoryParts is the maximum number of inmemory parts in the table.
@@ -95,7 +95,7 @@ func maxItemsPerCachedPart() uint64 {
 type Table struct {
 	// Atomically updated counters must go first in the struct, so they are properly
 	// aligned to 8 bytes on 32-bit architectures.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/212
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/212
 
 	activeInmemoryMerges uint64
 	activeFileMerges     uint64
@@ -959,7 +959,7 @@ func (tb *Table) mergeExistingParts(isFinal bool) error {
 	if !tb.canBackgroundMerge() {
 		// Do not perform background merge in read-only mode
 		// in order to prevent from disk space shortage.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2603
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/2603
 		return errReadOnlyMode
 	}
 	maxOutBytes := tb.getMaxFilePartSize()

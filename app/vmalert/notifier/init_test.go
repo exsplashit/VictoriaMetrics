@@ -1,7 +1,7 @@
 package notifier
 
 import (
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
 	"testing"
 )
 

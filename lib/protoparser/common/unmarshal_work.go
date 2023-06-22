@@ -3,8 +3,8 @@ package common
 import (
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // ScheduleUnmarshalWork schedules uw to run in the worker pool.

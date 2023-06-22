@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/graphiteql"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/graphiteql"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
 )
 
 func TestExecExprSuccess(t *testing.T) {

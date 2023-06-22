@@ -9,17 +9,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/backup/actions"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/backup/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/backup/fslocal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/backup/fsnil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/buildinfo"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/envflag"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/httpserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/pushmetrics"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/snapshot"
+	"github.com/exsplashit/VictoriaMetrics/lib/backup/actions"
+	"github.com/exsplashit/VictoriaMetrics/lib/backup/common"
+	"github.com/exsplashit/VictoriaMetrics/lib/backup/fslocal"
+	"github.com/exsplashit/VictoriaMetrics/lib/backup/fsnil"
+	"github.com/exsplashit/VictoriaMetrics/lib/buildinfo"
+	"github.com/exsplashit/VictoriaMetrics/lib/envflag"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/httpserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/pushmetrics"
+	"github.com/exsplashit/VictoriaMetrics/lib/snapshot"
 )
 
 var (
@@ -52,7 +52,7 @@ func main() {
 	// Storing snapshot delete function to be able to call it in case
 	// of error since logger.Fatal will exit the program without
 	// calling deferred functions.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2055
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/2055
 	deleteSnapshot := func() {}
 
 	if len(*snapshotCreateURL) > 0 {

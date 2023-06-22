@@ -4,8 +4,8 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/decimal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/decimal"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // rawRow represents raw timeseries row.

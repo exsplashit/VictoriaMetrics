@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // listenerSwitch listens for incoming connections and multiplexes them to OpenTSDB http or telnet listeners

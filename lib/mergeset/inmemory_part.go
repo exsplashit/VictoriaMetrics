@@ -3,9 +3,9 @@ package mergeset
 import (
 	"path/filepath"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
 )
 
 type inmemoryPart struct {
@@ -58,7 +58,7 @@ func (mp *inmemoryPart) Init(ib *inmemoryBlock) {
 
 	// Re-use mp.itemsData and mp.lensData in sb.
 	// This eliminates copying itemsData and lensData from sb to mp later.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2247
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/2247
 	sb := &storageBlock{}
 	sb.itemsData = mp.itemsData.B[:0]
 	sb.lensData = mp.lensData.B[:0]

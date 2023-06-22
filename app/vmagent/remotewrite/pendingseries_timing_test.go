@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
 	"github.com/golang/snappy"
 	"github.com/klauspost/compress/s2"
 )

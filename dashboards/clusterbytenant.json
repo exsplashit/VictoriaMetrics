@@ -291,7 +291,7 @@
         {
           "targetBlank": true,
           "title": "troubleshooting",
-          "url": "https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/README.md#troubleshooting"
+          "url": "https://github.com/exsplashit/VictoriaMetrics/blob/master/README.md#troubleshooting"
         }
       ],
       "nullPointMode": "null",

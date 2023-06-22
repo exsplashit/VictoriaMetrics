@@ -159,7 +159,7 @@ release-vmcluster-windows-goarch: \
 		vmstorage-windows-$(GOARCH)-prod.exe
 
 pprof-cpu:
-	go tool pprof -trim_path=github.com/VictoriaMetrics/VictoriaMetrics@ $(PPROF_FILE)
+	go tool pprof -trim_path=github.com/exsplashit/VictoriaMetrics@ $(PPROF_FILE)
 
 fmt:
 	gofmt -l -w -s ./lib

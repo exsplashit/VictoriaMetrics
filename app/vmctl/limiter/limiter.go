@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/timerpool"
+	"github.com/exsplashit/VictoriaMetrics/lib/timerpool"
 )
 
 // NewLimiter creates a Limiter object

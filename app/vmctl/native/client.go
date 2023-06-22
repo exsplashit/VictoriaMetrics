@@ -7,7 +7,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/auth"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/auth"
 )
 
 const (

@@ -16,7 +16,7 @@ High availability is not only important for customer-facing software but if the 
 
 ## VMAgent
 
-To run VMAgent in a highly available manner you have to configure deduplication at Victoria Metrics first [doc](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/docs/Single-server-VictoriaMetrics.md#deduplication)
+To run VMAgent in a highly available manner you have to configure deduplication at Victoria Metrics first [doc](https://github.com/exsplashit/VictoriaMetrics/blob/master/docs/Single-server-VictoriaMetrics.md#deduplication)
 
 Then increase replicas for VMAgent.
 

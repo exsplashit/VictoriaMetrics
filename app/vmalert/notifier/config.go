@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promrelabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/consul"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/dns"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/VictoriaMetrics/lib/promrelabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/consul"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/dns"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 )
 
 // Config contains list of supported configuration settings
@@ -136,7 +136,7 @@ func parseLabels(target string, metaLabels *promutils.Labels, cfg *Config) (stri
 	labels.Sort()
 	// Remove references to already deleted labels, so GC could clean strings for label name and label value past len(labels).
 	// This should reduce memory usage when relabeling creates big number of temporary labels with long names and/or values.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/825 for details.
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/825 for details.
 	labels = labels.Clone()
 
 	if labels.Len() == 0 {

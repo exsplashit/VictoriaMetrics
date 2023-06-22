@@ -13,20 +13,20 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/bufferedwriter"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/promql"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/querystats"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/searchutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/httpserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/querytracer"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/bufferedwriter"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/promql"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/querystats"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/searchutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/httpserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/querytracer"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metrics"
 	"github.com/valyala/fastjson/fastfloat"
 )
@@ -717,7 +717,7 @@ func SeriesHandler(qt *querytracer.Tracer, startTime time.Time, at *auth.Token, 
 	// since this leads to fetching and scanning all the data from the storage,
 	// which can take a lot of time for big storages.
 	// It is better setting start as end-defaultStep by default.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/91
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/91
 	cp, err := getCommonParamsWithDefaultDuration(r, startTime, true)
 	if err != nil {
 		return err
@@ -838,7 +838,7 @@ func QueryHandler(qt *querytracer.Tracer, startTime time.Time, at *auth.Token, w
 	}
 	if !searchutils.GetBool(r, "nocache") && ct-start < queryOffset && start-ct < queryOffset {
 		// Adjust start time only if `nocache` arg isn't set.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/241
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/241
 		startPrev := start
 		start = ct - queryOffset
 		queryOffset = startPrev - start
@@ -991,7 +991,7 @@ func queryRangeHandler(qt *querytracer.Tracer, startTime time.Time, at *auth.Tok
 	}
 
 	// Remove NaN values as Prometheus does.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/153
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/153
 	result = removeEmptyValuesAndTimeseries(result)
 
 	w.Header().Set("Content-Type", "application/json")
@@ -1063,7 +1063,7 @@ func adjustLastPoints(tss []netstorage.Result, start, end int64) []netstorage.Re
 		if j >= 0 && timestamps[j] > end {
 			// It looks like the `offset` is used in the query, which shifts time range beyond the `end`.
 			// Leave such a time series as is, since it is unclear which points may be incomplete in it.
-			// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/625
+			// See https://github.com/exsplashit/VictoriaMetrics/issues/625
 			continue
 		}
 		for j >= 0 && timestamps[j] > start {
@@ -1130,7 +1130,7 @@ func getLatencyOffsetMilliseconds(r *http.Request) (int64, error) {
 	d := latencyOffset.Milliseconds()
 	if d < 0 {
 		// Zero latency offset may be useful for some use cases.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2061#issuecomment-1299109836
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/2061#issuecomment-1299109836
 		d = 0
 	}
 	return searchutils.GetDuration(r, "latency_offset", d)
@@ -1234,8 +1234,8 @@ func getCommonParams(r *http.Request, startTime time.Time, requireNonEmptyMatch 
 	}
 	// Limit the `end` arg to the current time +2 days in the same way
 	// as it is limited during data ingestion.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/blob/ea06d2fd3ccbbb6aa4480ab3b04f7b671408be2a/lib/storage/table.go#L378
-	// This should fix possible timestamp overflow - see https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2669
+	// See https://github.com/exsplashit/VictoriaMetrics/blob/ea06d2fd3ccbbb6aa4480ab3b04f7b671408be2a/lib/storage/table.go#L378
+	// This should fix possible timestamp overflow - see https://github.com/exsplashit/VictoriaMetrics/issues/2669
 	maxTS := startTime.UnixNano()/1e6 + 2*24*3600*1000
 	if end > maxTS {
 		end = maxTS

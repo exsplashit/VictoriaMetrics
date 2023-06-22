@@ -756,7 +756,7 @@ VMAgentSpec defines the desired state of VMAgent
 | enforcedNamespaceLabel | EnforcedNamespaceLabel enforces adding a namespace label of origin for each alert and metric that is user created. The label value will always be the namespace of the object that is being created. | string | false |
 | vmAgentExternalLabelName | VMAgentExternalLabelName Name of vmAgent external label used to denote vmAgent instance name. Defaults to the value of `prometheus`. External label will _not_ be added when value is set to empty string (`\&#34;\&#34;`). | *string | false |
 | externalLabels | ExternalLabels The labels to add to any time series scraped by vmagent. it doesn&#39;t affect metrics ingested directly by push API&#39;s | map[string]string | false |
-| remoteWrite | RemoteWrite list of victoria metrics /some other remote write system for vm it must looks like: http://victoria-metrics-single:8429/api/v1/write or for cluster different url https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmagent#splitting-data-streams-among-multiple-systems | [][VMAgentRemoteWriteSpec](#vmagentremotewritespec) | true |
+| remoteWrite | RemoteWrite list of victoria metrics /some other remote write system for vm it must looks like: http://victoria-metrics-single:8429/api/v1/write or for cluster different url https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmagent#splitting-data-streams-among-multiple-systems | [][VMAgentRemoteWriteSpec](#vmagentremotewritespec) | true |
 | remoteWriteSettings | RemoteWriteSettings defines global settings for all remoteWrite urls. | *[VMAgentRemoteWriteSettings](#vmagentremotewritesettings) | false |
 | relabelConfig | RelabelConfig ConfigMap with global relabel config -remoteWrite.relabelConfig This relabeling is applied to all the collected metrics before sending them to remote storage. | *v1.ConfigMapKeySelector | false |
 | inlineRelabelConfig | InlineRelabelConfig - defines GlobalRelabelConfig for vmagent, can be defined directly at CRD. | [][RelabelConfig](#relabelconfig) | false |
@@ -1414,7 +1414,7 @@ OAuth2 defines OAuth2 configuration
 
 ## ProxyAuth
 
-ProxyAuth represent proxy auth config Only VictoriaMetrics scrapers supports it. See https://github.com/VictoriaMetrics/VictoriaMetrics/commit/a6a71ef861444eb11fe8ec6d2387f0fc0c4aea87
+ProxyAuth represent proxy auth config Only VictoriaMetrics scrapers supports it. See https://github.com/exsplashit/VictoriaMetrics/commit/a6a71ef861444eb11fe8ec6d2387f0fc0c4aea87
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
@@ -1431,8 +1431,8 @@ RelabelConfig allows dynamic rewriting of the label set, being applied to sample
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| source_labels | UnderScoreSourceLabels - additional form of source labels source_labels for compatibility with original relabel config. if set  both sourceLabels and source_labels, sourceLabels has priority. for details https://github.com/VictoriaMetrics/operator/issues/131 | []string | false |
-| target_label | UnderScoreTargetLabel - additional form of target label - target_label for compatibility with original relabel config. if set  both targetLabel and target_label, targetLabel has priority. for details https://github.com/VictoriaMetrics/operator/issues/131 | string | false |
+| source_labels | UnderScoreSourceLabels - additional form of source labels source_labels for compatibility with original relabel config. if set  both sourceLabels and source_labels, sourceLabels has priority. for details https://github.com/exsplashit/operator/issues/131 | []string | false |
+| target_label | UnderScoreTargetLabel - additional form of target label - target_label for compatibility with original relabel config. if set  both targetLabel and target_label, targetLabel has priority. for details https://github.com/exsplashit/operator/issues/131 | string | false |
 | sourceLabels | The source labels select values from existing labels. Their content is concatenated using the configured separator and matched against the configured regular expression for the replace, keep, and drop actions. | []string | false |
 | separator | Separator placed between concatenated source label values. default is &#39;;&#39;. | string | false |
 | targetLabel | Label to which the resulting value is written in a replace action. It is mandatory for replace actions. Regex capture groups are available. | string | false |

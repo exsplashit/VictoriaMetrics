@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/opentsdb"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/vm"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/opentsdb"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/vm"
 	"github.com/cheggaaa/pb/v3"
 )
 

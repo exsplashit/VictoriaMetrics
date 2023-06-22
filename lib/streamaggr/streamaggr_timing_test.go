@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
 )
 
 func BenchmarkAggregatorsPushByJobAvg(b *testing.B) {

@@ -11,32 +11,32 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/envtemplate"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promauth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promrelabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/azure"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/consul"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/consulagent"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/digitalocean"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/dns"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/docker"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/dockerswarm"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/ec2"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/eureka"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/gce"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/http"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/kubernetes"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/kuma"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/nomad"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/openstack"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discovery/yandexcloud"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/proxy"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/envtemplate"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/promauth"
+	"github.com/exsplashit/VictoriaMetrics/lib/promrelabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/azure"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/consul"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/consulagent"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/digitalocean"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/dns"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/docker"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/dockerswarm"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/ec2"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/eureka"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/gce"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/http"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/kubernetes"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/kuma"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/nomad"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/openstack"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discovery/yandexcloud"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/proxy"
 	"github.com/VictoriaMetrics/metrics"
 	"github.com/cespare/xxhash/v2"
 	"gopkg.in/yaml.v2"
@@ -63,7 +63,7 @@ var (
 		"If the replication factor is greater than 1, then the deduplication must be enabled at remote storage side. See https://docs.victoriametrics.com/#deduplication")
 	clusterName = flag.String("promscrape.cluster.name", "", "Optional name of the cluster. If multiple vmagent clusters scrape the same targets, "+
 		"then each cluster must have unique name in order to properly de-duplicate samples received from these clusters. "+
-		"See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2679")
+		"See https://github.com/exsplashit/VictoriaMetrics/issues/2679")
 )
 
 var clusterMemberID int
@@ -72,7 +72,7 @@ func mustInitClusterMemberID() {
 	s := *clusterMemberNum
 	// special case for kubernetes deployment, where pod-name formatted at some-pod-name-1
 	// obtain memberNum from last segment
-	// https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2359
+	// https://github.com/exsplashit/VictoriaMetrics/issues/2359
 	if idx := strings.LastIndexByte(s, '-'); idx >= 0 {
 		s = s[idx+1:]
 	}
@@ -138,7 +138,7 @@ func (cfg *Config) mustRestart(prevCfg *Config) {
 	}
 
 	// Restart all the scrape jobs on Global config change.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2884
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/2884
 	needGlobalRestart := !areEqualGlobalConfigs(&cfg.Global, &prevCfg.Global)
 
 	// Loop over the new jobs, start new ones and restart updated ones.
@@ -980,7 +980,7 @@ func getScrapeWorkConfig(sc *ScrapeConfig, baseDir string, globalCfg *GlobalConf
 	if scrapeTimeout > scrapeInterval {
 		// Limit the `scrape_timeout` with `scrape_interval` like Prometheus does.
 		// This guarantees that the scraper can miss only a single scrape if the target sometimes responds slowly.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1281#issuecomment-840538907
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/1281#issuecomment-840538907
 		scrapeTimeout = scrapeInterval
 	}
 	honorLabels := sc.HonorLabels
@@ -1258,7 +1258,7 @@ func (swc *scrapeWorkConfig) getScrapeWork(target string, extraLabels, metaLabel
 	// Verify whether the scrape work must be skipped because of `-promscrape.cluster.*` configs.
 	// Perform the verification on labels after the relabeling in order to guarantee that targets with the same set of labels
 	// go to the same vmagent shard.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1687#issuecomment-940629495
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1687#issuecomment-940629495
 	if *clusterMembersCount > 1 {
 		bb := scrapeWorkKeyBufPool.Get()
 		bb.B = appendScrapeWorkKey(bb.B[:0], labels)
@@ -1343,7 +1343,7 @@ func (swc *scrapeWorkConfig) getScrapeWork(target string, extraLabels, metaLabel
 	}
 	// Remove references to deleted labels, so GC could clean strings for label name and label value past len(labels.Labels).
 	// This should reduce memory usage when relabeling creates big number of temporary labels with long names and/or values.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/825 for details.
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/825 for details.
 	labelsCopy := labels.Clone()
 	// Sort labels in alphabetical order of their names.
 	labelsCopy.Sort()

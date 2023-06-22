@@ -18,7 +18,7 @@ Use this feature for the following cases:
 
 ## Features
 
-* Integration with [VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics) TSDB;
+* Integration with [VictoriaMetrics](https://github.com/exsplashit/VictoriaMetrics) TSDB;
 * VictoriaMetrics [MetricsQL](https://docs.victoriametrics.com/MetricsQL.html)
   support and expressions validation;
 * Prometheus [alerting rules definition format](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/#defining-alerting-rules)
@@ -30,7 +30,7 @@ Use this feature for the following cases:
 * Lightweight and without extra dependencies.
 * Supports [reusable templates](#reusable-templates) for annotations;
 * Load of recording and alerting rules from local filesystem, URL, GCS and S3;
-* Detect alerting rules which [don't match any series](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/4039).
+* Detect alerting rules which [don't match any series](https://github.com/exsplashit/VictoriaMetrics/issues/4039).
 
 ## Limitations
 
@@ -46,7 +46,7 @@ Use this feature for the following cases:
 To build `vmalert` from sources:
 
 ```console
-git clone https://github.com/VictoriaMetrics/VictoriaMetrics
+git clone https://github.com/exsplashit/VictoriaMetrics
 cd VictoriaMetrics
 make vmalert
 ```
@@ -59,7 +59,7 @@ To start using `vmalert` you will need the following things:
 * datasource address - reachable endpoint with [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api) support for running queries against;
 * notifier address [optional] - reachable [Alert Manager](https://github.com/prometheus/alertmanager) instance for processing,
   aggregating alerts, and sending notifications. Please note, notifier address also supports Consul and DNS Service Discovery via
-  [config file](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/app/vmalert/notifier/config.go).
+  [config file](https://github.com/exsplashit/VictoriaMetrics/blob/master/app/vmalert/notifier/config.go).
 * remote write address [optional] - [remote write](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations)
   compatible storage to persist rules and alerts state info. To persist results to multiple destinations use vmagent
   configured with multiple remote writes as a proxy;
@@ -93,7 +93,7 @@ to specify different `-external.label` command-line flags in order to define whi
 Configuration for [recording](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/)
 and [alerting](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) rules is very
 similar to Prometheus rules and configured using YAML. Configuration examples may be found
-in [testdata](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/app/vmalert/config/testdata) folder.
+in [testdata](https://github.com/exsplashit/VictoriaMetrics/blob/master/app/vmalert/config/testdata) folder.
 Every `rule` belongs to a `group` and every configuration file may contain arbitrary number of groups:
 
 ```yaml
@@ -412,7 +412,7 @@ If `-clusterMode` is enabled and the `tenant` in a particular group is missing, 
 is obtained from `-defaultTenant.prometheus` or `-defaultTenant.graphite` depending on the `type` of the group.
 
 The enterprise version of vmalert is available in `vmutils-*-enterprise.tar.gz` files
-at [release page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) and in `*-enterprise`
+at [release page](https://github.com/exsplashit/VictoriaMetrics/releases) and in `*-enterprise`
 tags at [Docker Hub](https://hub.docker.com/r/victoriametrics/vmalert/tags).
 
 ### Reading rules from object storage
@@ -730,7 +730,7 @@ See full description for these flags in `./vmalert -help`.
 ## Monitoring
 
 `vmalert` exports various metrics in Prometheus exposition format at `http://vmalert-host:8880/metrics` page.
-The default list of alerting rules for these metric can be found [here](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/deployment/docker).
+The default list of alerting rules for these metric can be found [here](https://github.com/exsplashit/VictoriaMetrics/tree/master/deployment/docker).
 We recommend setting up regular scraping of this page either through `vmagent` or by Prometheus so that the exported
 metrics may be analyzed later.
 
@@ -826,7 +826,7 @@ used to detect rules matching no series:
 max(vmalert_alerting_rules_last_evaluation_series_fetched) by(group, alertname) == 0
 ```
 
-See more details [here](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/4039).
+See more details [here](https://github.com/exsplashit/VictoriaMetrics/issues/4039).
 This feature is available only if vmalert is using VictoriaMetrics v1.90 or higher as a datasource.
 
 
@@ -906,7 +906,7 @@ The shortlist of configuration flags is the following:
   -datasource.queryStep duration
      How far a value can fallback to when evaluating queries. For example, if -datasource.queryStep=15s then param "step" with value "15s" will be added to every query. If set to 0, rule's evaluation interval will be used instead. (default 5m0s)
   -datasource.queryTimeAlignment
-     Whether to align "time" parameter with evaluation interval.Alignment supposed to produce deterministic results despite number of vmalert replicas or time they were started. See more details here https://github.com/VictoriaMetrics/VictoriaMetrics/pull/1257 (default true)
+     Whether to align "time" parameter with evaluation interval.Alignment supposed to produce deterministic results despite number of vmalert replicas or time they were started. See more details here https://github.com/exsplashit/VictoriaMetrics/pull/1257 (default true)
   -datasource.roundDigits int
      Adds "round_digits" GET param to datasource requests. In VM "round_digits" limits the number of digits after the decimal point in response values.
   -datasource.showURL
@@ -1307,7 +1307,7 @@ The list of configured or discovered Notifiers can be explored via [UI](#Web).
 If Alertmanager runs in cluster mode then all its URLs needs to be available during discovery
 to ensure [high availability](https://github.com/prometheus/alertmanager#high-availability).
 
-The configuration file [specification](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/app/vmalert/notifier/config.go)
+The configuration file [specification](https://github.com/exsplashit/VictoriaMetrics/blob/master/app/vmalert/notifier/config.go)
 is the following:
 
 ```
@@ -1414,14 +1414,14 @@ software. Please keep simplicity as the main priority.
 ## How to build from sources
 
 It is recommended using
-[binary releases](https://github.com/VictoriaMetrics/VictoriaMetrics/releases)
+[binary releases](https://github.com/exsplashit/VictoriaMetrics/releases)
 
 * `vmalert` is located in `vmutils-*` archives there.
 
 ### Docker image
 
 You can build `vmalert` docker image from source and push it to your own docker repository.
-Run the following commands from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics):
+Run the following commands from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics):
 ```console
 make package-vmalert
 docker tag victoria-metrics/vmalert:version my-repo:my-version-name
@@ -1440,13 +1440,13 @@ spec:
 ### Development build
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make vmalert` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmalert` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmalert` binary and puts it into the `bin` folder.
 
 ### Production build
 
 1. [Install docker](https://docs.docker.com/install/).
-2. Run `make vmalert-prod` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmalert-prod` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmalert-prod` binary and puts it into the `bin` folder.
 
 ### ARM build
@@ -1456,11 +1456,11 @@ ARM build may run on Raspberry Pi or on [energy-efficient ARM servers](https://b
 ### Development ARM build
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make vmalert-linux-arm` or `make vmalert-linux-arm64` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmalert-linux-arm` or `make vmalert-linux-arm64` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmalert-linux-arm` or `vmalert-linux-arm64` binary respectively and puts it into the `bin` folder.
 
 ### Production ARM build
 
 1. [Install docker](https://docs.docker.com/install/).
-2. Run `make vmalert-linux-arm-prod` or `make vmalert-linux-arm64-prod` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmalert-linux-arm-prod` or `make vmalert-linux-arm64-prod` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmalert-linux-arm-prod` or `vmalert-linux-arm64-prod` binary respectively and puts it into the `bin` folder.

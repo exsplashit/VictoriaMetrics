@@ -3,13 +3,13 @@ package opentsdbhttp
 import (
 	"net/http"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmagent/common"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmagent/remotewrite"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	parserCommon "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	parser "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/opentsdbhttp"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/opentsdbhttp/stream"
+	"github.com/exsplashit/VictoriaMetrics/app/vmagent/common"
+	"github.com/exsplashit/VictoriaMetrics/app/vmagent/remotewrite"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	parserCommon "github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	parser "github.com/exsplashit/VictoriaMetrics/lib/protoparser/opentsdbhttp"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/opentsdbhttp/stream"
 	"github.com/VictoriaMetrics/metrics"
 )
 

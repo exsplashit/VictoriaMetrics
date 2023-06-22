@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
 )
 
 func BenchmarkTableAddRows(b *testing.B) {

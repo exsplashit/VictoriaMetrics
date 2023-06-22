@@ -6,9 +6,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
 	"github.com/cespare/xxhash/v2"
 )
 
@@ -149,7 +149,7 @@ func (c *Cache) cleanByTimeout() {
 type cache struct {
 	// Atomically updated fields must go first in the struct, so they are properly
 	// aligned to 8 bytes on 32-bit architectures.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/212
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/212
 	requests uint64
 	misses   uint64
 

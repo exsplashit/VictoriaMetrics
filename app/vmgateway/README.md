@@ -1,6 +1,6 @@
 # vmgateway
 
-***vmgateway is a part of [enterprise package](https://docs.victoriametrics.com/enterprise.html). It is available for download and evaluation at [releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases)***
+***vmgateway is a part of [enterprise package](https://docs.victoriametrics.com/enterprise.html). It is available for download and evaluation at [releases page](https://github.com/exsplashit/VictoriaMetrics/releases)***
 
 <img alt="vmgateway" src="vmgateway-overview.jpeg">
 
@@ -310,7 +310,7 @@ The shortlist of configuration flags include the following:
   -datasource.queryStep duration
      How far a value can fallback to when evaluating queries. For example, if -datasource.queryStep=15s then param "step" with value "15s" will be added to every query. If set to 0, rule's evaluation interval will be used instead. (default 5m0s)
   -datasource.queryTimeAlignment
-     Whether to align "time" parameter with evaluation interval.Alignment supposed to produce deterministic results despite number of vmalert replicas or time they were started. See more details here https://github.com/VictoriaMetrics/VictoriaMetrics/pull/1257 (default true)
+     Whether to align "time" parameter with evaluation interval.Alignment supposed to produce deterministic results despite number of vmalert replicas or time they were started. See more details here https://github.com/exsplashit/VictoriaMetrics/pull/1257 (default true)
   -datasource.roundDigits int
      Adds "round_digits" GET param to datasource requests. In VM "round_digits" limits the number of digits after the decimal point in response values.
   -datasource.showURL

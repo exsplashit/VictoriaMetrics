@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/envtemplate"
+	"github.com/exsplashit/VictoriaMetrics/lib/envtemplate"
 )
 
 var (
@@ -77,7 +77,7 @@ func expandArgs(args []string) []string {
 
 func getEnvFlagName(s string) string {
 	// Substitute dots with underscores, since env var names cannot contain dots.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/311#issuecomment-586354129 for details.
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/311#issuecomment-586354129 for details.
 	s = strings.ReplaceAll(s, ".", "_")
 	return *prefix + s
 }

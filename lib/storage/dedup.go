@@ -39,7 +39,7 @@ func DeduplicateSamples(srcTimestamps []int64, srcValues []float64, dedupInterva
 			continue
 		}
 		// Choose the maximum value with the timestamp equal to tsPrev.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3333
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/3333
 		j := i
 		tsPrev := srcTimestamps[j]
 		vPrev := srcValues[j]
@@ -85,7 +85,7 @@ func deduplicateSamplesDuringMerge(srcTimestamps, srcValues []int64, dedupInterv
 			continue
 		}
 		// Choose the maximum value with the timestamp equal to tsPrev.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3333
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/3333
 		j := i
 		tsPrev := srcTimestamps[j]
 		vPrev := srcValues[j]

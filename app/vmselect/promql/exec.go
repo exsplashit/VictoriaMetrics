@@ -10,12 +10,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/querystats"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/decimal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/querytracer"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/querystats"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/decimal"
+	"github.com/exsplashit/VictoriaMetrics/lib/querytracer"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metrics"
 	"github.com/VictoriaMetrics/metricsql"
 )
@@ -332,7 +332,7 @@ type parseCacheValue struct {
 
 type parseCache struct {
 	// Move atomic counters to the top of struct for 8-byte alignment on 32-bit arch.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/212
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/212
 
 	requests uint64
 	misses   uint64

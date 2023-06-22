@@ -13,12 +13,12 @@ import (
 
 	"golang.org/x/net/http2"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/flagutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promscrape/discoveryutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/proxy"
-	"github.com/VictoriaMetrics/fasthttp"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/flagutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/promscrape/discoveryutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/proxy"
+	"github.com/exsplashit/fasthttp"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -153,13 +153,13 @@ func newClient(ctx context.Context, sw *ScrapeWork) *client {
 
 			// Set timeout for receiving the first response byte,
 			// since the duration for reading the full response can be much bigger because of stream parsing.
-			// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1017#issuecomment-767235047
+			// See https://github.com/exsplashit/VictoriaMetrics/issues/1017#issuecomment-767235047
 			ResponseHeaderTimeout: sw.ScrapeTimeout,
 		},
 
 		// Set 30x bigger timeout than the sw.ScrapeTimeout, since the duration for reading the full response
 		// can be much bigger because of stream parsing.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1017#issuecomment-767235047
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/1017#issuecomment-767235047
 		Timeout: 30 * sw.ScrapeTimeout,
 	}
 	if sw.EnableHTTP2 {
@@ -203,11 +203,11 @@ func (c *client) GetStreamReader() (*streamReader, error) {
 	// The following `Accept` header has been copied from Prometheus sources.
 	// See https://github.com/prometheus/prometheus/blob/f9d21f10ecd2a343a381044f131ea4e46381ce09/scrape/scrape.go#L532 .
 	// This is needed as a workaround for scraping stupid Java-based servers such as Spring Boot.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/608 for details.
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/608 for details.
 	// Do not bloat the `Accept` header with OpenMetrics shit, since it looks like dead standard now.
 	req.Header.Set("Accept", "text/plain;version=0.0.4;q=1,*/*;q=0.1")
 	// Set X-Prometheus-Scrape-Timeout-Seconds like Prometheus does, since it is used by some exporters such as PushProx.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1179#issuecomment-813117162
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1179#issuecomment-813117162
 	req.Header.Set("X-Prometheus-Scrape-Timeout-Seconds", c.scrapeTimeoutSecondsStr)
 	c.setHeaders(req)
 	c.setProxyHeaders(req)
@@ -251,11 +251,11 @@ func (c *client) ReadData(dst []byte) ([]byte, error) {
 	// The following `Accept` header has been copied from Prometheus sources.
 	// See https://github.com/prometheus/prometheus/blob/f9d21f10ecd2a343a381044f131ea4e46381ce09/scrape/scrape.go#L532 .
 	// This is needed as a workaround for scraping stupid Java-based servers such as Spring Boot.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/608 for details.
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/608 for details.
 	// Do not bloat the `Accept` header with OpenMetrics shit, since it looks like dead standard now.
 	req.Header.Set("Accept", "text/plain;version=0.0.4;q=1,*/*;q=0.1")
 	// Set X-Prometheus-Scrape-Timeout-Seconds like Prometheus does, since it is used by some exporters such as PushProx.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1179#issuecomment-813117162
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1179#issuecomment-813117162
 	req.Header.Set("X-Prometheus-Scrape-Timeout-Seconds", c.scrapeTimeoutSecondsStr)
 	c.setFasthttpHeaders(req)
 	c.setFasthttpProxyHeaders(req)
@@ -389,7 +389,7 @@ func doRequestWithPossibleRetry(ctx context.Context, hc *fasthttp.HostClient, re
 	// The first attempt was unsuccessful. Use exponential backoff for further attempts.
 	// Perform the second attempt immediately after the first attempt - this should help
 	// in cases when the remote side closes the keep-alive connection before the first attempt.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3293
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/3293
 	sleepTime := time.Second
 	// It is expected that the deadline is already set to ctx, so the loop below
 	// should eventually finish if all the attempt() calls are unsuccessful.

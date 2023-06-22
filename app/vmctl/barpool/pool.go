@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/terminal"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/terminal"
 	"github.com/cheggaaa/pb/v3"
 )
 

@@ -6,7 +6,7 @@ package zstd
 import (
 	"io"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 	"github.com/klauspost/compress/zstd"
 )
 

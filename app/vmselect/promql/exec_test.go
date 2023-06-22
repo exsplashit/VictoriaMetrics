@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/searchutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/searchutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metricsql"
 )
 
@@ -3904,7 +3904,7 @@ func TestExecSuccess(t *testing.T) {
 		f(q, resultExpected)
 	})
 	t.Run(`histogram_quantile(duplicate-le)`, func(t *testing.T) {
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/pull/3225
+		// See https://github.com/exsplashit/VictoriaMetrics/pull/3225
 		t.Parallel()
 		q := `round(sort(histogram_quantile(0.6,
 			label_set(90, "foo", "bar", "le", "5")

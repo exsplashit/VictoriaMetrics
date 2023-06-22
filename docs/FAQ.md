@@ -200,7 +200,7 @@ The architecture is [optimized for storing and querying large amounts of time se
 The following versions are open source and free:
 
 * [Single-node version](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html).
-* [Cluster version](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster).
+* [Cluster version](https://github.com/exsplashit/VictoriaMetrics/tree/cluster).
 
 We provide commercial support for both versions. [Contact us](mailto:info@victoriametrics.com) for the pricing.
 
@@ -233,8 +233,8 @@ Yes. See [these docs](https://docs.victoriametrics.com/Single-server-VictoriaMet
 
 Source code for the following versions is available in the following places:
 
-* [Single-node version](https://github.com/VictoriaMetrics/VictoriaMetrics)
-* [Cluster version](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster)
+* [Single-node version](https://github.com/exsplashit/VictoriaMetrics)
+* [Cluster version](https://github.com/exsplashit/VictoriaMetrics/tree/cluster)
 
 ## Is VictoriaMetrics a good fit for data from IoT sensors and industrial sensors?
 
@@ -277,7 +277,7 @@ Questions about VictoriaMetrics can be asked via the following channels:
 
 ## Where can I file bugs and feature requests regarding VictoriaMetrics?
 
-File bugs and feature requests [here](https://github.com/VictoriaMetrics/VictoriaMetrics/issues).
+File bugs and feature requests [here](https://github.com/exsplashit/VictoriaMetrics/issues).
 
 ## Where can I find information about multi-tenancy?
 
@@ -296,7 +296,7 @@ Memory usage for VictoriaMetrics components can be tuned according to the follow
 
 ## How can I run VictoriaMetrics on FreeBSD/OpenBSD?
 
-VictoriaMetrics is included in [OpenBSD](https://github.com/openbsd/ports/blob/c1bfea520bbb30d6e5f8d0f09115ace341f820d6/infrastructure/db/user.list#L383) and [FreeBSD](https://www.freebsd.org/cgi/ports.cgi?query=victoria&stype=all) ports so just install it from there or use pre-built binaries from [releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+VictoriaMetrics is included in [OpenBSD](https://github.com/openbsd/ports/blob/c1bfea520bbb30d6e5f8d0f09115ace341f820d6/infrastructure/db/user.list#L383) and [FreeBSD](https://www.freebsd.org/cgi/ports.cgi?query=victoria&stype=all) ports so just install it from there or use pre-built binaries from [releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 
 ## Does VictoriaMetrics support the Graphite query language?
 

@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/handshake"
+	"github.com/exsplashit/VictoriaMetrics/lib/handshake"
 	"github.com/VictoriaMetrics/metrics"
 )
 

@@ -72,4 +72,4 @@ groups:
           summary: "Too many TSID misses for job \"{{ $labels.job }}\" ({{ $labels.instance }})"
           description: "The rate of TSID misses during query lookups is too high for \"{{ $labels.job }}\" ({{ $labels.instance }}).\n
          Make sure you're running VictoriaMetrics of v1.85.3 or higher.\n
-         Related issue https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3502"
+         Related issue https://github.com/exsplashit/VictoriaMetrics/issues/3502"

@@ -7,7 +7,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding/zstd"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding/zstd"
 )
 
 type bufferedWriter interface {

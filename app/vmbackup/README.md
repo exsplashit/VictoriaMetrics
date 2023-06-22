@@ -284,18 +284,18 @@ See [this article](https://medium.com/@valyala/speeding-up-backups-for-big-time-
 
 ## How to build from sources
 
-It is recommended using [binary releases](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) - see `vmutils-*` archives there.
+It is recommended using [binary releases](https://github.com/exsplashit/VictoriaMetrics/releases) - see `vmutils-*` archives there.
 
 ### Development build
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make vmbackup` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmbackup` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmbackup` binary and puts it into the `bin` folder.
 
 ### Production build
 
 1. [Install docker](https://docs.docker.com/install/).
-2. Run `make vmbackup-prod` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make vmbackup-prod` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `vmbackup-prod` binary and puts it into the `bin` folder.
 
 ### Building docker images

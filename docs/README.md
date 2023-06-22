@@ -3,22 +3,22 @@ title: VictoriaMetrics
 ---
 # VictoriaMetrics
 
-[![Latest Release](https://img.shields.io/github/release/VictoriaMetrics/VictoriaMetrics.svg?style=flat-square)](https://github.com/VictoriaMetrics/VictoriaMetrics/releases/latest)
+[![Latest Release](https://img.shields.io/github/release/VictoriaMetrics/VictoriaMetrics.svg?style=flat-square)](https://github.com/exsplashit/VictoriaMetrics/releases/latest)
 [![Docker Pulls](https://img.shields.io/docker/pulls/victoriametrics/victoria-metrics.svg?maxAge=604800)](https://hub.docker.com/r/victoriametrics/victoria-metrics)
 [![victoriametrics](https://snapcraft.io/victoriametrics/badge.svg)](https://snapcraft.io/victoriametrics)
 [![Slack](https://img.shields.io/badge/join%20slack-%23victoriametrics-brightgreen.svg)](https://slack.victoriametrics.com/)
-[![GitHub license](https://img.shields.io/github/license/VictoriaMetrics/VictoriaMetrics.svg)](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/LICENSE)
-[![Go Report](https://goreportcard.com/badge/github.com/VictoriaMetrics/VictoriaMetrics)](https://goreportcard.com/report/github.com/VictoriaMetrics/VictoriaMetrics)
-[![Build Status](https://github.com/VictoriaMetrics/VictoriaMetrics/workflows/main/badge.svg)](https://github.com/VictoriaMetrics/VictoriaMetrics/actions)
+[![GitHub license](https://img.shields.io/github/license/VictoriaMetrics/VictoriaMetrics.svg)](https://github.com/exsplashit/VictoriaMetrics/blob/master/LICENSE)
+[![Go Report](https://goreportcard.com/badge/github.com/exsplashit/VictoriaMetrics)](https://goreportcard.com/report/github.com/exsplashit/VictoriaMetrics)
+[![Build Status](https://github.com/exsplashit/VictoriaMetrics/workflows/main/badge.svg)](https://github.com/exsplashit/VictoriaMetrics/actions)
 [![codecov](https://codecov.io/gh/VictoriaMetrics/VictoriaMetrics/branch/master/graph/badge.svg)](https://codecov.io/gh/VictoriaMetrics/VictoriaMetrics)
 
 <img src="logo.png" width="300" alt="VictoriaMetrics logo">
 
 VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and time series database.
 
-VictoriaMetrics is available in [binary releases](https://github.com/VictoriaMetrics/VictoriaMetrics/releases),
+VictoriaMetrics is available in [binary releases](https://github.com/exsplashit/VictoriaMetrics/releases),
 [Docker images](https://hub.docker.com/r/victoriametrics/victoria-metrics/), [Snap packages](https://snapcraft.io/victoriametrics)
-and [source code](https://github.com/VictoriaMetrics/VictoriaMetrics). 
+and [source code](https://github.com/exsplashit/VictoriaMetrics). 
 Just download [the latest version of VictoriaMetrics](https://docs.victoriametrics.com/CHANGELOG.html)
 and follow [these instructions](https://docs.victoriametrics.com/Quick-Start.html).
 
@@ -30,7 +30,7 @@ Learn more about [key concepts](https://docs.victoriametrics.com/keyConcepts.htm
 [Contact us](mailto:info@victoriametrics.com) if you need enterprise support for VictoriaMetrics. 
 See [features available in enterprise package](https://docs.victoriametrics.com/enterprise.html).
 Enterprise binaries can be downloaded and evaluated for free 
-from [the releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+from [the releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 
 VictoriaMetrics is developed at a fast pace, so it is recommended periodically checking the [CHANGELOG](https://docs.victoriametrics.com/CHANGELOG.html) and performing [regular upgrades](#how-to-upgrade-victoriametrics).
 
@@ -93,7 +93,7 @@ VictoriaMetrics has the following prominent features:
   [high churn rate](https://docs.victoriametrics.com/FAQ.html#what-is-high-churn-rate) issues via [series limiter](#cardinality-limiter).
 * It ideally works with big amounts of time series data from APM, Kubernetes, IoT sensors, connected cars, industrial telemetry, financial data
   and various [Enterprise workloads](https://docs.victoriametrics.com/enterprise.html).
-* It has open source [cluster version](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster).
+* It has open source [cluster version](https://github.com/exsplashit/VictoriaMetrics/tree/cluster).
 * It can store data on [NFS-based storages](https://en.wikipedia.org/wiki/Network_File_System) such as [Amazon EFS](https://aws.amazon.com/efs/)
   and [Google Filestore](https://cloud.google.com/filestore).
 
@@ -133,14 +133,14 @@ See also [articles and slides about VictoriaMetrics from our users](https://docs
 
 ### Install
 
-To quickly try VictoriaMetrics, just download [VictoriaMetrics executable](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) or [Docker image](https://hub.docker.com/r/victoriametrics/victoria-metrics/) and start it with the desired command-line flags.
+To quickly try VictoriaMetrics, just download [VictoriaMetrics executable](https://github.com/exsplashit/VictoriaMetrics/releases) or [Docker image](https://hub.docker.com/r/victoriametrics/victoria-metrics/) and start it with the desired command-line flags.
 See also [QuickStart guide](https://docs.victoriametrics.com/Quick-Start.html) for additional information.
 
 VictoriaMetrics can also be installed via these installation methods:
 
-* [Helm charts for single-node and cluster versions of VictoriaMetrics](https://github.com/VictoriaMetrics/helm-charts).
-* [Kubernetes operator for VictoriaMetrics](https://github.com/VictoriaMetrics/operator).
-* [Ansible role for installing cluster VictoriaMetrics (by VictoriaMetrics)](https://github.com/VictoriaMetrics/ansible-playbooks).
+* [Helm charts for single-node and cluster versions of VictoriaMetrics](https://github.com/exsplashit/helm-charts).
+* [Kubernetes operator for VictoriaMetrics](https://github.com/exsplashit/operator).
+* [Ansible role for installing cluster VictoriaMetrics (by VictoriaMetrics)](https://github.com/exsplashit/ansible-playbooks).
 * [Ansible role for installing cluster VictoriaMetrics (by community)](https://github.com/Slapper/ansible-victoriametrics-cluster-role).
 * [Ansible role for installing single-node VictoriaMetrics (by community)](https://github.com/dreamteam-gg/ansible-victoriametrics-role).
 * [Snap package for VictoriaMetrics](https://snapcraft.io/victoriametrics).
@@ -288,16 +288,16 @@ Substitute `<victoriametrics-addr>` with the hostname or IP address of VictoriaM
 Then build graphs and dashboards for the created datasource using [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/)
 or [MetricsQL](https://docs.victoriametrics.com/MetricsQL.html).
 
-Alternatively, use VictoriaMetrics [datasource plugin](https://github.com/VictoriaMetrics/grafana-datasource) with support of extra features. 
-See more in [description](https://github.com/VictoriaMetrics/grafana-datasource#victoriametrics-data-source-for-grafana).
+Alternatively, use VictoriaMetrics [datasource plugin](https://github.com/exsplashit/grafana-datasource) with support of extra features. 
+See more in [description](https://github.com/exsplashit/grafana-datasource#victoriametrics-data-source-for-grafana).
 
 ## How to upgrade VictoriaMetrics
 
 VictoriaMetrics is developed at a fast pace, so it is recommended periodically checking [the CHANGELOG page](https://docs.victoriametrics.com/CHANGELOG.html) and performing regular upgrades.
 
-It is safe upgrading VictoriaMetrics to new versions unless [release notes](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) say otherwise. It is safe skipping multiple versions during the upgrade unless [release notes](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) say otherwise. It is recommended performing regular upgrades to the latest version, since it may contain important bug fixes, performance optimizations or new features.
+It is safe upgrading VictoriaMetrics to new versions unless [release notes](https://github.com/exsplashit/VictoriaMetrics/releases) say otherwise. It is safe skipping multiple versions during the upgrade unless [release notes](https://github.com/exsplashit/VictoriaMetrics/releases) say otherwise. It is recommended performing regular upgrades to the latest version, since it may contain important bug fixes, performance optimizations or new features.
 
-It is also safe downgrading to older versions unless [release notes](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) say otherwise.
+It is also safe downgrading to older versions unless [release notes](https://github.com/exsplashit/VictoriaMetrics/releases) say otherwise.
 
 The following steps must be performed during the upgrade / downgrade procedure:
 
@@ -383,7 +383,7 @@ VictoriaMetrics provides an ability to explore time series cardinality at `Explo
 - To identify labels with the highest number of unique values.
   Note that [cluster version of VictoriaMetrics](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html)
   may show lower than expected number of unique label values for labels with small number of unique values.
-  This is because of [implementation limits](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/5a6e617b5e41c9170e7c562aecd15ee0c901d489/app/vmselect/netstorage/netstorage.go#L1039-L1045).
+  This is because of [implementation limits](https://github.com/exsplashit/VictoriaMetrics/blob/5a6e617b5e41c9170e7c562aecd15ee0c901d489/app/vmselect/netstorage/netstorage.go#L1039-L1045).
 
 By default, cardinality explorer analyzes time series for the current date. It provides the ability to select different day at the top right corner.
 By default, all the time series for the selected date are analyzed. It is possible to narrow down the analysis to series
@@ -886,7 +886,7 @@ VictoriaMetrics supports the following handlers from [Graphite Tags API](https:/
 
 ## How to build from sources
 
-We recommend using either [binary releases](https://github.com/VictoriaMetrics/VictoriaMetrics/releases) or
+We recommend using either [binary releases](https://github.com/exsplashit/VictoriaMetrics/releases) or
 [docker images](https://hub.docker.com/r/victoriametrics/victoria-metrics/) instead of building VictoriaMetrics
 from sources. Building from sources is reasonable when developing additional features specific
 to your needs or when testing bugfixes.
@@ -894,13 +894,13 @@ to your needs or when testing bugfixes.
 ### Development build
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make victoria-metrics` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make victoria-metrics` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `victoria-metrics` binary and puts it into the `bin` folder.
 
 ### Production build
 
 1. [Install docker](https://docs.docker.com/install/).
-2. Run `make victoria-metrics-prod` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make victoria-metrics-prod` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `victoria-metrics-prod` binary and puts it into the `bin` folder.
 
 ### ARM build
@@ -910,13 +910,13 @@ ARM build may run on Raspberry Pi or on [energy-efficient ARM servers](https://b
 ### Development ARM build
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make victoria-metrics-linux-arm` or `make victoria-metrics-linux-arm64` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make victoria-metrics-linux-arm` or `make victoria-metrics-linux-arm64` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `victoria-metrics-linux-arm` or `victoria-metrics-linux-arm64` binary respectively and puts it into the `bin` folder.
 
 ### Production ARM build
 
 1. [Install docker](https://docs.docker.com/install/).
-2. Run `make victoria-metrics-linux-arm-prod` or `make victoria-metrics-linux-arm64-prod` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make victoria-metrics-linux-arm-prod` or `make victoria-metrics-linux-arm64-prod` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `victoria-metrics-linux-arm-prod` or `victoria-metrics-linux-arm64-prod` binary respectively and puts it into the `bin` folder.
 
 ### Pure Go build (CGO_ENABLED=0)
@@ -924,7 +924,7 @@ ARM build may run on Raspberry Pi or on [energy-efficient ARM servers](https://b
 `Pure Go` mode builds only Go code without [cgo](https://golang.org/cmd/cgo/) dependencies.
 
 1. [Install Go](https://golang.org/doc/install). The minimum supported version is Go 1.19.
-2. Run `make victoria-metrics-pure` from the root folder of [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+2. Run `make victoria-metrics-pure` from the root folder of [the repository](https://github.com/exsplashit/VictoriaMetrics).
    It builds `victoria-metrics-pure` binary and puts it into the `bin` folder.
 
 ### Building docker images
@@ -943,13 +943,13 @@ ROOT_IMAGE=scratch make package-victoria-metrics
 
 ## Start with docker-compose
 
-[Docker-compose](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/docker/docker-compose.yml)
+[Docker-compose](https://github.com/exsplashit/VictoriaMetrics/blob/master/deployment/docker/docker-compose.yml)
 helps to spin up VictoriaMetrics, [vmagent](https://docs.victoriametrics.com/vmagent.html) and Grafana with one command.
-More details may be found [here](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/deployment/docker#folder-contains-basic-images-and-tools-for-building-and-running-victoria-metrics-in-docker).
+More details may be found [here](https://github.com/exsplashit/VictoriaMetrics/tree/master/deployment/docker#folder-contains-basic-images-and-tools-for-building-and-running-victoria-metrics-in-docker).
 
 ## Setting up service
 
-Read [instructions](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/43) on how to set up VictoriaMetrics
+Read [instructions](https://github.com/exsplashit/VictoriaMetrics/issues/43) on how to set up VictoriaMetrics
 as a service for your OS. A [snap package](https://snapcraft.io/victoriametrics) is available for Ubuntu.
 
 ## How to work with snapshots
@@ -1553,7 +1553,7 @@ of the data blocks. But **it cannot fix the corrupted data**. Data parts that fa
 or restored from backups. This is why it is recommended performing
 [regular backups](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html#backups).
 
-VictoriaMetrics doesn't use checksums for stored data blocks. See why [here](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3011).
+VictoriaMetrics doesn't use checksums for stored data blocks. See why [here](https://github.com/exsplashit/VictoriaMetrics/issues/3011).
 
 VictoriaMetrics doesn't merge parts if their summary size exceeds free disk space.
 This prevents from potential out of disk space errors during merge.
@@ -1637,7 +1637,7 @@ to historical data.
 
 See [how to configure multiple retentions in VictoriaMetrics cluster](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html#retention-filters).
 
-Retention filters can be evaluated for free by downloading and using enterprise binaries from [the releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+Retention filters can be evaluated for free by downloading and using enterprise binaries from [the releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 
 ## Downsampling
 
@@ -1653,7 +1653,7 @@ Downsampling happens during [background merges](https://docs.victoriametrics.com
 and can't be performed if there is not enough of free disk space or if vmstorage 
 is in [read-only mode](https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html#readonly-mode).
 
-The downsampling can be evaluated for free by downloading and using enterprise binaries from [the releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+The downsampling can be evaluated for free by downloading and using enterprise binaries from [the releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 
 ## Multi-tenancy
 
@@ -1665,7 +1665,7 @@ Though single-node VictoriaMetrics cannot scale to multiple nodes, it is optimiz
 This means that a single-node VictoriaMetrics may scale vertically and substitute a moderately sized cluster built with competing solutions
 such as Thanos, Uber M3, InfluxDB or TimescaleDB. See [vertical scalability benchmarks](https://medium.com/@valyala/measuring-vertical-scalability-for-time-series-databases-in-google-cloud-92550d78d8ae).
 
-So try single-node VictoriaMetrics at first and then [switch to the cluster version](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster) if you still need
+So try single-node VictoriaMetrics at first and then [switch to the cluster version](https://github.com/exsplashit/VictoriaMetrics/tree/cluster) if you still need
 horizontally scalable long-term remote storage for really large Prometheus deployments.
 [Contact us](mailto:info@victoriametrics.com) for enterprise support.
 
@@ -1717,7 +1717,7 @@ and [the general security page at VictoriaMetrics website](https://victoriametri
   The recommendation is not specific for VictoriaMetrics only but also for any service which handles many HTTP connections and stores data on disk.
 * VictoriaMetrics is a write-heavy application and its performance depends on disk performance. So be careful with other
   applications or utilities (like [fstrim](http://manpages.ubuntu.com/manpages/bionic/man8/fstrim.8.html))
-  which could [exhaust disk resources](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1521).
+  which could [exhaust disk resources](https://github.com/exsplashit/VictoriaMetrics/issues/1521).
 * The recommended filesystem is `ext4`, the recommended persistent storage is [persistent HDD-based disk on GCP](https://cloud.google.com/compute/docs/disks/#pdspecs),
   since it is protected from hardware failures via internal replication and it can be [resized on the fly](https://cloud.google.com/compute/docs/disks/add-persistent-disk#resize_pd).
   If you plan to store more than 1TB of data on `ext4` partition or plan extending it to more than 16TB,
@@ -1742,7 +1742,7 @@ created by community.
 
 Graphs on the dashboards contain useful hints - hover the `i` icon in the top left corner of each graph to read it.
 
-We recommend setting up [alerts](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/docker/alerts.yml)
+We recommend setting up [alerts](https://github.com/exsplashit/VictoriaMetrics/blob/master/deployment/docker/alerts.yml)
 via [vmalert](https://docs.victoriametrics.com/vmalert.html) or via Prometheus.
 
 VictoriaMetrics exposes currently running queries and their execution times at `/api/v1/status/active_queries` page.
@@ -1877,7 +1877,7 @@ and [cardinality explorer docs](#cardinality-explorer).
 
 * It is recommended inspecting logs during troubleshooting, since they may contain useful information.
 
-* It is recommended upgrading to the latest available release from [this page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases),
+* It is recommended upgrading to the latest available release from [this page](https://github.com/exsplashit/VictoriaMetrics/releases),
   since the encountered issue could be already fixed there.
 
 * It is recommended to have at least 50% of spare resources for CPU, disk IO and RAM, so VictoriaMetrics could handle short spikes in the workload without performance issues.
@@ -1980,7 +1980,7 @@ Sometimes it is needed to remove such caches on the next startup. This can be do
 - By manually removing the `<-storageDataPath>/cache` directory when VictoriaMetrics is stopped.
 - By placing `reset_cache_on_startup` file inside the `<-storageDataPath>/cache` directory before the restart of VictoriaMetrics.
   In this case VictoriaMetrics will automatically remove all the caches on the next start.
-  See [this issue](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1447) for details.
+  See [this issue](https://github.com/exsplashit/VictoriaMetrics/issues/1447) for details.
 
 ## Cache tuning
 
@@ -2078,7 +2078,7 @@ See also [high availability docs](#high-availability) and [backup docs](#backups
 VictoriaMetrics supports backups via [vmbackup](https://docs.victoriametrics.com/vmbackup.html)
 and [vmrestore](https://docs.victoriametrics.com/vmrestore.html) tools.
 We also provide [vmbackupmanager](https://docs.victoriametrics.com/vmbackupmanager.html) tool for enterprise subscribers.
-Enterprise binaries can be downloaded and evaluated for free from [the releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+Enterprise binaries can be downloaded and evaluated for free from [the releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 
 ## vmalert
 
@@ -2098,7 +2098,7 @@ So we encourage users and all independent third parties to conduct their benchma
 they are evaluating in production and publish the results.
 
 As a reference, please see [benchmarks](https://docs.victoriametrics.com/Articles.html#benchmarks) conducted by
-VictoriaMetrics team. Please also see the [helm chart](https://github.com/VictoriaMetrics/benchmark)
+VictoriaMetrics team. Please also see the [helm chart](https://github.com/exsplashit/benchmark)
 for running ingestion benchmarks based on node_exporter metrics.
 
 ## Profiling
@@ -2163,7 +2163,7 @@ Feel free asking any questions regarding VictoriaMetrics:
 
 If you like VictoriaMetrics and want to contribute, then we need the following:
 
-* Filing issues and feature requests [here](https://github.com/VictoriaMetrics/VictoriaMetrics/issues).
+* Filing issues and feature requests [here](https://github.com/exsplashit/VictoriaMetrics/issues).
 * Spreading a word about VictoriaMetrics: conference talks, articles, comments, experience sharing with colleagues.
 * Updating documentation.
 
@@ -2180,11 +2180,11 @@ Adhering `KISS` principle simplifies the resulting code and architecture, so it 
 
 ## Reporting bugs
 
-Report bugs and propose new features [here](https://github.com/VictoriaMetrics/VictoriaMetrics/issues).
+Report bugs and propose new features [here](https://github.com/exsplashit/VictoriaMetrics/issues).
 
 ## VictoriaMetrics Logo
 
-[Zip](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/VM_logo.zip) contains three folders with different image orientations (main color and inverted version).
+[Zip](https://github.com/exsplashit/VictoriaMetrics/blob/master/VM_logo.zip) contains three folders with different image orientations (main color and inverted version).
 
 Files included in each folder:
 
@@ -2382,7 +2382,7 @@ Pass `-help` to VictoriaMetrics in order to see the list of supported command-li
   -promscrape.cluster.membersCount int
      The number of members in a cluster of scrapers. Each member must have a unique -promscrape.cluster.memberNum in the range 0 ... promscrape.cluster.membersCount-1 . Each member then scrapes roughly 1/N of all the targets. By default, cluster scraping is disabled, i.e. a single scraper scrapes all the targets
   -promscrape.cluster.name string
-     Optional name of the cluster. If multiple vmagent clusters scrape the same targets, then each cluster must have unique name in order to properly de-duplicate samples received from these clusters. See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2679
+     Optional name of the cluster. If multiple vmagent clusters scrape the same targets, then each cluster must have unique name in order to properly de-duplicate samples received from these clusters. See https://github.com/exsplashit/VictoriaMetrics/issues/2679
   -promscrape.cluster.replicationFactor int
      The number of members in the cluster, which scrape the same targets. If the replication factor is greater than 1, then the deduplication must be enabled at remote storage side. See https://docs.victoriametrics.com/#deduplication (default 1)
   -promscrape.config string
@@ -2627,5 +2627,5 @@ Pass `-help` to VictoriaMetrics in order to see the list of supported command-li
   -vmalert.proxyURL string
      Optional URL for proxying requests to vmalert. For example, if -vmalert.proxyURL=http://vmalert:8880 , then alerting API requests such as /api/v1/rules from Grafana will be proxied to http://vmalert:8880/api/v1/rules
   -vmui.customDashboardsPath string
-     Optional path to vmui dashboards. See https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
+     Optional path to vmui dashboards. See https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
 ```

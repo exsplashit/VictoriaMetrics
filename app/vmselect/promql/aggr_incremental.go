@@ -5,8 +5,8 @@ import (
 	"strings"
 	"unsafe"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
 	"github.com/VictoriaMetrics/metricsql"
 )
 

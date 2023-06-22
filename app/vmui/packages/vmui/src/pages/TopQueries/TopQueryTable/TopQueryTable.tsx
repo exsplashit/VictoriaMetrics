@@ -29,7 +29,7 @@ const TopQueryTable:FC<TopQueryPanelProps> = ({ rows, columns, defaultOrderBy })
   };
 
   const createCopyHandler = ({ query }: TopQuery) => () => {
-    // TODO add useCopyToClipboard after merge https://github.com/VictoriaMetrics/VictoriaMetrics/pull/4145
+    // TODO add useCopyToClipboard after merge https://github.com/exsplashit/VictoriaMetrics/pull/4145
     navigator.clipboard.writeText(query);
     showInfoMessage({ text: "Query has been copied", type: "success" });
   };

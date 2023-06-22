@@ -12,10 +12,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/backoff"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/barpool"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/limiter"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/decimal"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/backoff"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/barpool"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/limiter"
+	"github.com/exsplashit/VictoriaMetrics/lib/decimal"
 	"github.com/cheggaaa/pb/v3"
 )
 

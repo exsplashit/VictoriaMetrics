@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/barpool"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/remoteread"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/stepper"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmctl/vm"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/barpool"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/remoteread"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/stepper"
+	"github.com/exsplashit/VictoriaMetrics/app/vmctl/vm"
 	"github.com/cheggaaa/pb/v3"
 )
 

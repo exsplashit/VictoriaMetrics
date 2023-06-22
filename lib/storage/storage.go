@@ -16,19 +16,19 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/backup/backupnames"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bloomfilter"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/decimal"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/memory"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/querytracer"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/snapshot"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/uint64set"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/workingsetcache"
+	"github.com/exsplashit/VictoriaMetrics/lib/backup/backupnames"
+	"github.com/exsplashit/VictoriaMetrics/lib/bloomfilter"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/decimal"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/memory"
+	"github.com/exsplashit/VictoriaMetrics/lib/querytracer"
+	"github.com/exsplashit/VictoriaMetrics/lib/snapshot"
+	"github.com/exsplashit/VictoriaMetrics/lib/uint64set"
+	"github.com/exsplashit/VictoriaMetrics/lib/workingsetcache"
 	"github.com/VictoriaMetrics/fastcache"
 	"github.com/VictoriaMetrics/metricsql"
 )
@@ -41,7 +41,7 @@ const (
 // Storage represents TSDB storage.
 type Storage struct {
 	// Atomic counters must go at the top of the structure in order to properly align by 8 bytes on 32-bit archs.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/212 .
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/212 .
 	tooSmallTimestampRows uint64
 	tooBigTimestampRows   uint64
 
@@ -88,7 +88,7 @@ type Storage struct {
 	// Fast cache for pre-populating per-day inverted index for the next day.
 	// This is needed in order to remove CPU usage spikes at 00:00 UTC
 	// due to creation of per-day inverted index for active time series.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/430 for details.
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/430 for details.
 	nextDayMetricIDs atomic.Value
 
 	// Pending MetricID values to be added to currHourMetricIDs.
@@ -167,7 +167,7 @@ func MustOpenStorage(path string, retentionMsecs int64, maxHourlySeries, maxDail
 
 	// Check whether the cache directory must be removed
 	// It is removed if it contains resetCacheOnStartupFilename.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1447 for details.
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1447 for details.
 	if fs.IsPathExist(filepath.Join(s.cachePath, resetCacheOnStartupFilename)) {
 		logger.Infof("removing cache directory at %q, since it contains `%s` file...", s.cachePath, resetCacheOnStartupFilename)
 		// Do not use fs.MustRemoveAll() here, since the cache directory may be mounted
@@ -247,7 +247,7 @@ func MustOpenStorage(path string, retentionMsecs int64, maxHourlySeries, maxDail
 	s.updateDeletedMetricIDs(dmisPrev)
 
 	// check for free disk space before opening the table
-	// to prevent unexpected part merges. See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/4023
+	// to prevent unexpected part merges. See https://github.com/exsplashit/VictoriaMetrics/issues/4023
 	s.startFreeDiskSpaceWatcher()
 
 	// Load data
@@ -740,7 +740,7 @@ func (s *Storage) mustRotateIndexDB() {
 
 	// Do not flush tsidCache to avoid read/write path slowdown
 	// and slowly re-populate new idb with entries from the cache via maybeCreateIndexes().
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1401
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1401
 
 	// Flush metric id caches for the current and the previous hour,
 	// since they may contain entries missing in idbNew.
@@ -756,7 +756,7 @@ func (s *Storage) mustRotateIndexDB() {
 	//    The information about the series from step 5 disappears from indexdb, since the old indexdb from step 1 is deleted,
 	//    while the current indexdb doesn't contain information about the series.
 	//    So queries for the last 24 hours stop returning samples added at step 3.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2698
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/2698
 	s.pendingHourEntriesLock.Lock()
 	s.pendingHourEntries = nil
 	s.pendingHourEntriesLock.Unlock()
@@ -775,7 +775,7 @@ func (s *Storage) mustRotateIndexDB() {
 func (s *Storage) resetAndSaveTSIDCache() {
 	// Reset cache and then store the reset cache on disk in order to prevent
 	// from inconsistent behaviour after possible unclean shutdown.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1347
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/1347
 	s.tsidCache.Reset()
 	s.mustSaveCache(s.tsidCache, "metricName_tsid")
 }
@@ -1062,7 +1062,7 @@ func (s *Storage) mustSaveCache(c *workingsetcache.Cache, name string) {
 var saveCacheLock sync.Mutex
 
 // SetRetentionTimezoneOffset sets the offset, which is used for calculating the time for indexdb rotation.
-// See https://github.com/VictoriaMetrics/VictoriaMetrics/pull/2574
+// See https://github.com/exsplashit/VictoriaMetrics/pull/2574
 func SetRetentionTimezoneOffset(offset time.Duration) {
 	retentionTimezoneOffsetMsecs = offset.Milliseconds()
 }
@@ -1079,12 +1079,12 @@ func nextRetentionDurationAt(atMsecs int64, retentionMsecs int64) time.Duration 
 	retentionMsecs = ((retentionMsecs + msecPerDay - 1) / msecPerDay) * msecPerDay
 
 	// The effect of time zone on retention period is moved out.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/pull/2574
+	// See https://github.com/exsplashit/VictoriaMetrics/pull/2574
 	deadline := ((atMsecs + retentionMsecs + retentionTimezoneOffsetMsecs - 1) / retentionMsecs) * retentionMsecs
 
 	// Schedule the deadline to +4 hours from the next retention period start.
 	// This should prevent from possible double deletion of indexdb
-	// due to time drift - see https://github.com/VictoriaMetrics/VictoriaMetrics/issues/248 .
+	// due to time drift - see https://github.com/exsplashit/VictoriaMetrics/issues/248 .
 	deadline += int64(4 * 3600 * 1000)
 	deadline -= retentionTimezoneOffsetMsecs
 	return time.Duration(deadline-atMsecs) * time.Millisecond
@@ -1759,7 +1759,7 @@ func (s *Storage) add(rows []rawRow, dstMrs []*MetricRow, mrs []MetricRow, preci
 			if genTSID.generation != idb.generation {
 				// The found entry is from the previous cache generation,
 				// so attempt to re-populate the current generation with this entry.
-				// This is needed for https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1401
+				// This is needed for https://github.com/exsplashit/VictoriaMetrics/issues/1401
 				date := uint64(r.Timestamp) / msecPerDay
 				created, err := is.maybeCreateIndexes(&genTSID.TSID, mr.MetricNameRaw, date)
 				if err != nil {
@@ -2015,7 +2015,7 @@ func (s *Storage) updatePerDateData(rows []rawRow, mrs []*MetricRow) error {
 				// Gradually pre-populate per-day inverted index for the next day during the last hour of the current day.
 				// This should reduce CPU usage spike and slowdown at the beginning of the next day
 				// when entries for all the active time series must be added to the index.
-				// This should address https://github.com/VictoriaMetrics/VictoriaMetrics/issues/430 .
+				// This should address https://github.com/exsplashit/VictoriaMetrics/issues/430 .
 				if pMin > 0 {
 					p := float64(uint32(fastHashUint64(metricID))) / (1 << 32)
 					if p < pMin && !nextDayMetricIDs.Has(metricID) {
@@ -2357,7 +2357,7 @@ func (s *Storage) updateNextDayMetricIDs(date uint64) {
 	} else {
 		// Do not add pendingMetricIDs from the previous day to the current day,
 		// since this may result in missing registration of the metricIDs in the per-day inverted index.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3309
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/3309
 		pendingMetricIDs = &uint64set.Set{}
 	}
 	eNew := &byDateMetricIDEntry{
@@ -2407,7 +2407,7 @@ func (s *Storage) updateCurrHourMetricIDs(hour uint64) {
 	if hm.hour == hour || hour%24 != 0 {
 		// Do not add pending metricIDs from the previous hour on the previous day to the current hour,
 		// since this may result in missing registration of the metricIDs in the per-day inverted index.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3309
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/3309
 		for _, x := range newEntries {
 			m.Add(x.MetricID)
 			k := accountProjectKey{

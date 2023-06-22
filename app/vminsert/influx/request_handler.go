@@ -6,18 +6,18 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/netstorage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vminsert/relabel"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/auth"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompb"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
-	parserCommon "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/common"
-	parser "github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/influx"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/protoparser/influx/stream"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/tenantmetrics"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/netstorage"
+	"github.com/exsplashit/VictoriaMetrics/app/vminsert/relabel"
+	"github.com/exsplashit/VictoriaMetrics/lib/auth"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompb"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
+	parserCommon "github.com/exsplashit/VictoriaMetrics/lib/protoparser/common"
+	parser "github.com/exsplashit/VictoriaMetrics/lib/protoparser/influx"
+	"github.com/exsplashit/VictoriaMetrics/lib/protoparser/influx/stream"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/lib/tenantmetrics"
 	"github.com/VictoriaMetrics/metrics"
 )
 
@@ -93,7 +93,7 @@ func insertRows(at *auth.Token, db string, rows []parser.Row, extraLabels []prom
 		if !*skipMeasurement {
 			ctx.metricGroupBuf = append(ctx.metricGroupBuf, r.Measurement...)
 		}
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1139
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/1139
 		skipFieldKey := len(r.Measurement) > 0 && len(r.Fields) == 1 && *skipSingleField
 		if len(ctx.metricGroupBuf) > 0 && !skipFieldKey {
 			ctx.metricGroupBuf = append(ctx.metricGroupBuf, *measurementFieldSeparator...)

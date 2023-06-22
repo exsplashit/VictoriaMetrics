@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 	"github.com/VictoriaMetrics/metrics"
 	"github.com/valyala/fastjson/fastfloat"
 )
@@ -205,7 +205,7 @@ func (t *Tag) unmarshal(s string) {
 	n := strings.IndexByte(s, '=')
 	if n < 0 {
 		// Empty tag value.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1100
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/1100
 		t.Key = s
 		t.Value = s[len(s):]
 	} else {

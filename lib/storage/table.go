@@ -9,9 +9,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 // table represents a single table with time series data.
@@ -36,7 +36,7 @@ type table struct {
 // partitionWrapper provides refcounting mechanism for the partition.
 type partitionWrapper struct {
 	// Atomic counters must be at the top of struct for proper 8-byte alignment on 32-bit archs.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/212
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/212
 
 	refCount uint64
 

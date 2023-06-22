@@ -35,7 +35,7 @@ Operator introduces the following custom resources:
 
 ## VMSingle
 
-The `VMSingle` CRD declaratively defines a [single-node VM](https://github.com/VictoriaMetrics/VictoriaMetrics)
+The `VMSingle` CRD declaratively defines a [single-node VM](https://github.com/exsplashit/VictoriaMetrics)
 installation to run in a Kubernetes cluster. 
 
 For each `VMSingle` resource, the Operator deploys a properly configured `Deployment` in the same namespace. 
@@ -48,7 +48,7 @@ name `<VMSingle-name>`.
 
 ## VMCluster
  
-The `VMCluster` CRD defines a [cluster version VM](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster). 
+The `VMCluster` CRD defines a [cluster version VM](https://github.com/exsplashit/VictoriaMetrics/tree/cluster). 
 
 For each `VMCluster` resource, the Operator creates `VMStorage` as `StatefulSet`, `VMSelect` as `StatefulSet` and `VMInsert` 
 as deployment. For `VMStorage` and `VMSelect` headless  services are created. `VMInsert` is created as service with clusterIP. 
@@ -67,7 +67,7 @@ The most important is `VM_PODWAITREADYTIMEOUT=80s` - it controls how long to wai
 
 ## VMAgent
 
-The `VMAgent` CRD declaratively defines a desired [VMAgent](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmagent) 
+The `VMAgent` CRD declaratively defines a desired [VMAgent](https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmagent) 
 setup to run in a Kubernetes cluster. 
 
 For each `VMAgent` resource Operator deploys a properly configured `Deployment` in the same namespace. 
@@ -87,7 +87,7 @@ so user can set custom configuration while still benefiting from the Operator's 
 
 ## VMAlert
 
-The `VMAlert` CRD declaratively defines a desired [VMAlert](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmalert) 
+The `VMAlert` CRD declaratively defines a desired [VMAlert](https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmalert) 
 setup to run in a Kubernetes cluster. 
 
 For each `VMAlert` resource, the Operator deploys a properly configured `Deployment` in the same namespace. 

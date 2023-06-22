@@ -13,8 +13,8 @@ import (
 
 	"github.com/golang/snappy"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompb"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/prompbmarshal"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompb"
+	"github.com/exsplashit/VictoriaMetrics/lib/prompbmarshal"
 )
 
 func TestClient_Push(t *testing.T) {

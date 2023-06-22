@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/searchutils"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/searchutils"
 )
 
 // FunctionsHandler implements /functions handler.

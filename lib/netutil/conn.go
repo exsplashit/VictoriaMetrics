@@ -44,7 +44,7 @@ func (cm *connMetrics) init(ms *metrics.Set, group, name, addr string) {
 
 type statConn struct {
 	// Move atomic counters to the top of struct in order to properly align them on 32-bit arch.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/212
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/212
 
 	closeCalls uint64
 

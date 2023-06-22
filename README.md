@@ -4,7 +4,7 @@
 
 VictoriaMetrics is a fast, cost-effective and scalable time series database. It can be used as a long-term remote storage for Prometheus.
 
-It is recommended to use the [single-node version](https://github.com/VictoriaMetrics/VictoriaMetrics) instead of the cluster version
+It is recommended to use the [single-node version](https://github.com/exsplashit/VictoriaMetrics) instead of the cluster version
 for ingestion rates lower than a million data points per second.
 The single-node version [scales perfectly](https://medium.com/@valyala/measuring-vertical-scalability-for-time-series-databases-in-google-cloud-92550d78d8ae)
 with the number of CPU cores, RAM and available storage space.
@@ -15,7 +15,7 @@ Join [our Slack](https://slack.victoriametrics.com/) or [contact us](mailto:info
 
 ## Prominent features
 
-- Supports all the features of the [single-node version](https://github.com/VictoriaMetrics/VictoriaMetrics).
+- Supports all the features of the [single-node version](https://github.com/exsplashit/VictoriaMetrics).
 - Performance and capacity scale horizontally. See [these docs for details](#cluster-resizing-and-scalability).
 - Supports multiple independent namespaces for time series data (aka multi-tenancy). See [these docs for details](#multitenancy).
 - Supports replication. See [these docs for details](#replication-and-data-safety).
@@ -93,7 +93,7 @@ since untrusted source may break per-tenant data by writing unwanted samples to 
 
 ## Binaries
 
-Compiled binaries for the cluster version are available in the `assets` section of the [releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+Compiled binaries for the cluster version are available in the `assets` section of the [releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 Also see archives containing the word `cluster`.
 
 Docker images for the cluster version are available here:
@@ -104,7 +104,7 @@ Docker images for the cluster version are available here:
 
 ## Building from sources
 
-The source code for the cluster version is available in the [cluster branch](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster).
+The source code for the cluster version is available in the [cluster branch](https://github.com/exsplashit/VictoriaMetrics/tree/cluster).
 
 ### Production builds
 
@@ -130,7 +130,7 @@ vmstorage-prod
 ### Development Builds
 
 1. [Install go](https://golang.org/doc/install). The minimum supported version is Go 1.18.
-2. Run `make` from [the repository root](https://github.com/VictoriaMetrics/VictoriaMetrics). It should build `vmstorage`, `vmselect`
+2. Run `make` from [the repository root](https://github.com/exsplashit/VictoriaMetrics). It should build `vmstorage`, `vmselect`
    and `vminsert` binaries and put them into the `bin` folder.
 
 ### Building docker images
@@ -141,7 +141,7 @@ Run `make package`. It will build the following docker images locally:
 - `victoriametrics/vmselect:<PKG_TAG>`
 - `victoriametrics/vmstorage:<PKG_TAG>`
 
-`<PKG_TAG>` is auto-generated image tag, which depends on source code in [the repository](https://github.com/VictoriaMetrics/VictoriaMetrics).
+`<PKG_TAG>` is auto-generated image tag, which depends on source code in [the repository](https://github.com/exsplashit/VictoriaMetrics).
 The `<PKG_TAG>` may be manually set via `PKG_TAG=foobar make package`.
 
 By default, images are built on top of [alpine](https://hub.docker.com/_/scratch) image in order to improve debuggability.
@@ -180,9 +180,9 @@ Ports may be altered by setting `-httpListenAddr` on the corresponding nodes.
 It is recommended setting up [monitoring](#monitoring) for the cluster.
 
 The following tools can simplify cluster setup:
-- [An example docker-compose config for VictoriaMetrics cluster](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/docker/docker-compose-cluster.yml)
-- [Helm charts for VictoriaMetrics](https://github.com/VictoriaMetrics/helm-charts)
-- [Kubernetes operator for VictoriaMetrics](https://github.com/VictoriaMetrics/operator)
+- [An example docker-compose config for VictoriaMetrics cluster](https://github.com/exsplashit/VictoriaMetrics/blob/master/deployment/docker/docker-compose-cluster.yml)
+- [Helm charts for VictoriaMetrics](https://github.com/exsplashit/helm-charts)
+- [Kubernetes operator for VictoriaMetrics](https://github.com/exsplashit/operator)
 
 It is possible manually setting up a toy cluster on a single host. In this case every cluster component - `vminsert`, `vmselect` and `vmstorage` - must have distinct values for `-httpListenAddr` command-line flag. This flag specifies http address for accepting http requests for [monitoring](#monitoring) and [profiling](#profiling). `vmstorage` node must have distinct values for the following additional command-line flags in order to prevent resource usage clash:
 - `-storageDataPath` - every `vmstorage` node must have a dedicated data storage.
@@ -267,7 +267,7 @@ When `vmselect` runs with `-clusternativeListenAddr` command-line option, then i
 
 See [these docs](https://gist.github.com/f41gh7/76ed8e5fb1ebb9737fe746bae9175ee6) on how to set up mTLS in VictoriaMetrics cluster.
 
-[Enterprise version of VictoriaMetrics](https://docs.victoriametrics.com/enterprise.html) can be downloaded and evaluated for free from [the releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+[Enterprise version of VictoriaMetrics](https://docs.victoriametrics.com/enterprise.html) can be downloaded and evaluated for free from [the releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 
 ## Monitoring
 
@@ -283,7 +283,7 @@ or Prometheus to scrape `/metrics` pages from all the cluster components, so the
 with [the official Grafana dashboard for VictoriaMetrics cluster](https://grafana.com/grafana/dashboards/11176-victoriametrics-cluster/)
 or [an alternative dashboard for VictoriaMetrics cluster](https://grafana.com/grafana/dashboards/11831). Graphs on these dashboards contain useful hints - hover the `i` icon at the top left corner of each graph in order to read it.
 
-It is recommended setting up alerts in [vmalert](https://docs.victoriametrics.com/vmalert.html) or in Prometheus from [this config](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/cluster/deployment/docker/alerts.yml).
+It is recommended setting up alerts in [vmalert](https://docs.victoriametrics.com/vmalert.html) or in Prometheus from [this config](https://github.com/exsplashit/VictoriaMetrics/blob/cluster/deployment/docker/alerts.yml).
 See more details in the article [VictoriaMetrics Monitoring](https://victoriametrics.com/blog/victoriametrics-monitoring/).
 
 ## Cardinality limiter
@@ -637,11 +637,11 @@ These issues are addressed by [vmagent](https://docs.victoriametrics.com/vmagent
 ## Helm
 
 Helm chart simplifies managing cluster version of VictoriaMetrics in Kubernetes.
-It is available in the [helm-charts](https://github.com/VictoriaMetrics/helm-charts) repository.
+It is available in the [helm-charts](https://github.com/exsplashit/helm-charts) repository.
 
 ## Kubernetes operator
 
-[K8s operator](https://github.com/VictoriaMetrics/operator) simplifies managing VictoriaMetrics components in Kubernetes.
+[K8s operator](https://github.com/exsplashit/operator) simplifies managing VictoriaMetrics components in Kubernetes.
 
 ## Replication and data safety
 
@@ -713,13 +713,13 @@ For example, the following config sets retention to 5 days for time series with 
 
 See also [these docs](https://docs.victoriametrics.com/#retention-filters) for additional details on retention filters.
 
-Enterprise binaries can be downloaded and evaluated for free from [the releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+Enterprise binaries can be downloaded and evaluated for free from [the releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 
 ## Downsampling
 
 Downsampling is available in [enterprise version of VictoriaMetrics](https://docs.victoriametrics.com/enterprise.html). It is configured with `-downsampling.period` command-line flag. The same flag value must be passed to both `vmstorage` and `vmselect` nodes. See [these docs](https://docs.victoriametrics.com/#downsampling) for details.
 
-Enterprise binaries can be downloaded and evaluated for free from [the releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases).
+Enterprise binaries can be downloaded and evaluated for free from [the releases page](https://github.com/exsplashit/VictoriaMetrics/releases).
 
 ## Profiling
 
@@ -787,7 +787,7 @@ Due to `KISS`, cluster version of VictoriaMetrics has no the following "features
 
 ## Reporting bugs
 
-Report bugs and propose new features [here](https://github.com/VictoriaMetrics/VictoriaMetrics/issues).
+Report bugs and propose new features [here](https://github.com/exsplashit/VictoriaMetrics/issues).
 
 ## List of command-line flags
 
@@ -1226,7 +1226,7 @@ Below is the output for `/path/to/vmselect -help`:
   -vmstorageDialTimeout duration
      Timeout for establishing RPC connections from vmselect to vmstorage (default 5s)
   -vmui.customDashboardsPath string
-     Optional path to vmui dashboards. See https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
+     Optional path to vmui dashboards. See https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
 ```
 
 ### List of command-line flags for vmstorage
@@ -1420,7 +1420,7 @@ Below is the output for `/path/to/vmstorage -help`:
 
 ## VictoriaMetrics Logo
 
-[Zip](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/VM_logo.zip) contains three folders with different image orientation (main color and inverted version).
+[Zip](https://github.com/exsplashit/VictoriaMetrics/blob/master/VM_logo.zip) contains three folders with different image orientation (main color and inverted version).
 
 Files included in each folder:
 

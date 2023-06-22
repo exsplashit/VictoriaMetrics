@@ -17,10 +17,10 @@ This guide explains the different ways in which you can use vmalert in conjuncti
 
 ## Preconditions 
 
-* [vmalert](https://docs.victoriametrics.com/vmalert.html) is installed. You can obtain it by building it from [source](https://docs.victoriametrics.com/vmalert.html#quickstart), downloading it from the [GitHub releases page](https://github.com/VictoriaMetrics/VictoriaMetrics/releases), or using the [docker image](https://hub.docker.com/r/victoriametrics/vmalert) for the container ecosystem (such as docker, k8s, etc.).
+* [vmalert](https://docs.victoriametrics.com/vmalert.html) is installed. You can obtain it by building it from [source](https://docs.victoriametrics.com/vmalert.html#quickstart), downloading it from the [GitHub releases page](https://github.com/exsplashit/VictoriaMetrics/releases), or using the [docker image](https://hub.docker.com/r/victoriametrics/vmalert) for the container ecosystem (such as docker, k8s, etc.).
 * [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) is installed.
 * You have a [single or cluster](https://docs.victoriametrics.com/managed-victoriametrics/quickstart.html#creating-deployment) deployment in [Managed VictoriaMetrics](https://docs.victoriametrics.com/managed-victoriametrics/overview.html).
-* If you are using helm, add the [VictoriaMetrics helm chart](https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-alert#how-to-install) repository to your helm repositories. This step is optional.
+* If you are using helm, add the [VictoriaMetrics helm chart](https://github.com/exsplashit/helm-charts/tree/master/charts/victoria-metrics-alert#how-to-install) repository to your helm repositories. This step is optional.
 * If you are using [vmoperator](https://docs.victoriametrics.com/operator/quick-start.html#quick-start), make sure that it and its CRDs are installed. This step is also optional.
 
 ## Setup

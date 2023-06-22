@@ -5,7 +5,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
 )
 
 // FastStringMatcher implements fast matcher for strings.
@@ -62,7 +62,7 @@ func (fsm *FastStringMatcher) Match(s string) bool {
 	// Make a copy of s in order to limit memory usage to the s length,
 	// since the s may point to bigger string.
 	// This also protects from the case when s contains unsafe string, which points to a temporary byte slice.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3227
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/3227
 	s = strings.Clone(s)
 	fsm.m.Store(s, e)
 

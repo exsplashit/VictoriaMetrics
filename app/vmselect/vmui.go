@@ -8,17 +8,17 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
 )
 
 var (
 	vmuiCustomDashboardsPath = flag.String("vmui.customDashboardsPath", "", "Optional path to vmui dashboards. "+
-		"See https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards")
+		"See https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards")
 )
 
 // dashboardSettings represents dashboard settings file struct.
 //
-// See https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
+// See https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
 type dashboardSettings struct {
 	Title    string         `json:"title,omitempty"`
 	Filename string         `json:"filename,omitempty"`
@@ -27,7 +27,7 @@ type dashboardSettings struct {
 
 // panelSettings represents fields which used to show graph.
 //
-// See https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
+// See https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
 type panelSettings struct {
 	Title       string   `json:"title,omitempty"`
 	Description string   `json:"description,omitempty"`
@@ -40,7 +40,7 @@ type panelSettings struct {
 
 // dashboardRow represents panels on dashboard.
 //
-// See https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
+// See https://github.com/exsplashit/VictoriaMetrics/tree/master/app/vmui/packages/vmui/public/dashboards
 type dashboardRow struct {
 	Title  string          `json:"title,omitempty"`
 	Panels []panelSettings `json:"panels"`

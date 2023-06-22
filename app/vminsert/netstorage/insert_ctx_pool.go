@@ -3,7 +3,7 @@ package netstorage
 import (
 	"sync"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
 )
 
 // GetInsertCtx returns InsertCtx from the pool.

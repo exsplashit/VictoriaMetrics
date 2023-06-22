@@ -17,17 +17,17 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmselect/searchutils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/bytesutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/handshake"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/httpserver"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/netutil"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/querytracer"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/storage"
+	"github.com/exsplashit/VictoriaMetrics/app/vmselect/searchutils"
+	"github.com/exsplashit/VictoriaMetrics/lib/bytesutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/handshake"
+	"github.com/exsplashit/VictoriaMetrics/lib/httpserver"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/netutil"
+	"github.com/exsplashit/VictoriaMetrics/lib/querytracer"
+	"github.com/exsplashit/VictoriaMetrics/lib/storage"
 	"github.com/VictoriaMetrics/metrics"
 	"github.com/VictoriaMetrics/metricsql"
 	"github.com/cespare/xxhash/v2"
@@ -173,7 +173,7 @@ func timeseriesWorker(qt *querytracer.Tracer, workChs []chan *timeseriesWork, wo
 			// Do not call runtime.Gosched() here in order to give a chance
 			// the real owner of the work to complete it, since it consumes additional CPU
 			// and slows down the code on systems with big number of CPU cores.
-			// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3966#issuecomment-1483208419
+			// See https://github.com/exsplashit/VictoriaMetrics/issues/3966#issuecomment-1483208419
 
 			// It is expected that every channel in the workChs is already closed,
 			// so the next line should return immediately.
@@ -928,7 +928,7 @@ func GraphiteTags(qt *querytracer.Tracer, accountID, projectID uint32, denyParti
 			continue
 		}
 		// Prevent from duplicate `name` tag.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/942
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/942
 		if hasString(labels, "name") {
 			labels = append(labels[:i], labels[i+1:]...)
 		} else {
@@ -1351,7 +1351,7 @@ func (tbfw *tmpBlocksFileWrapper) RegisterAndWriteBlock(mb *storage.MetricBlock,
 		return err
 	}
 	// Do not intern mb.MetricName, since it leads to increased memory usage.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/3692
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/3692
 	metricName := mb.MetricName
 	m := tbfw.ms[workerID]
 	addrs := m[string(metricName)]
@@ -1734,7 +1734,7 @@ func (snr *storageNodesRequest) collectResults(partialResultsCounter *metrics.Co
 			// There is no need in waiting for the remaining results,
 			// because the collected results contain all the data according to the given -replicationFactor.
 			// This should speed up responses when a part of vmstorage nodes are slow and/or temporarily unavailable.
-			// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/711
+			// See https://github.com/exsplashit/VictoriaMetrics/issues/711
 			//
 			// It is expected that cap(snr.resultsCh) == len(sns), otherwise goroutine leak is possible.
 			snr.finishQueryTracers(fmt.Sprintf("cancel request because %d out of %d nodes already returned response according to -replicationFactor=%d",

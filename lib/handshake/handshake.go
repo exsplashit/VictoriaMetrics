@@ -65,7 +65,7 @@ func genericServer(c net.Conn, msg string, compressionLevel int) (*BufferedConn,
 	if err := readMessage(c, msg); err != nil {
 		if errors.Is(err, io.EOF) {
 			// This is TCP healthcheck, which must be ignored in order to prevent from logs pollution.
-			// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1762
+			// See https://github.com/exsplashit/VictoriaMetrics/issues/1762
 			return nil, ErrIgnoreHealthcheck
 		}
 		return nil, fmt.Errorf("cannot read hello: %w", err)

@@ -4,8 +4,8 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/awsapi"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/awsapi"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
 )
 
 func getAZMap(cfg *apiConfig) map[string]string {

@@ -10,10 +10,10 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/config/log"
-	"github.com/VictoriaMetrics/VictoriaMetrics/app/vmalert/utils"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/envtemplate"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/promutils"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/config/log"
+	"github.com/exsplashit/VictoriaMetrics/app/vmalert/utils"
+	"github.com/exsplashit/VictoriaMetrics/lib/envtemplate"
+	"github.com/exsplashit/VictoriaMetrics/lib/promutils"
 )
 
 // Group contains list of Rules grouped into

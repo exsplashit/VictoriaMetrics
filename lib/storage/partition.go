@@ -13,13 +13,13 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/cgroup"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/encoding"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fasttime"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/fs"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/logger"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/memory"
-	"github.com/VictoriaMetrics/VictoriaMetrics/lib/mergeset"
+	"github.com/exsplashit/VictoriaMetrics/lib/cgroup"
+	"github.com/exsplashit/VictoriaMetrics/lib/encoding"
+	"github.com/exsplashit/VictoriaMetrics/lib/fasttime"
+	"github.com/exsplashit/VictoriaMetrics/lib/fs"
+	"github.com/exsplashit/VictoriaMetrics/lib/logger"
+	"github.com/exsplashit/VictoriaMetrics/lib/memory"
+	"github.com/exsplashit/VictoriaMetrics/lib/mergeset"
 )
 
 // The maximum size of big part.
@@ -98,7 +98,7 @@ var (
 // partition represents a partition.
 type partition struct {
 	// Put atomic counters to the top of struct, so they are aligned to 8 bytes on 32-bit arch.
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/212
+	// See https://github.com/exsplashit/VictoriaMetrics/issues/212
 
 	activeInmemoryMerges uint64
 	activeSmallMerges    uint64
@@ -1150,7 +1150,7 @@ func (pt *partition) mergeInmemoryParts() error {
 func (pt *partition) mergeExistingParts(isFinal bool) error {
 	if !pt.canBackgroundMerge() {
 		// Do not perform merge in read-only mode, since this may result in disk space shortage.
-		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/2603
+		// See https://github.com/exsplashit/VictoriaMetrics/issues/2603
 		return errReadOnlyMode
 	}
 	maxOutBytes := pt.getMaxBigPartSize()
